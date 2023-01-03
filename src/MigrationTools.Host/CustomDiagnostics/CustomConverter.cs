@@ -35,16 +35,16 @@ namespace MigrationTools.Host.CustomDiagnostics
                     telemetry.Context.Operation.ParentId = logEvent.Properties["operation_parentId"].ToString();
                 }
                 // typecast to ISupportProperties so you can manipulate the properties as desired
-                ISupportProperties propTelematry = (ISupportProperties)telemetry;
+                ISupportProperties propTelemetry = (ISupportProperties)telemetry;
 
-                // find redundent properties
+                // find redundant properties
                 var removeProps = new[] { "UserId", "operation_parentId", "operation_Id", "SessionID" };
-                removeProps = removeProps.Where(prop => propTelematry.Properties.ContainsKey(prop)).ToArray();
+                removeProps = removeProps.Where(prop => propTelemetry.Properties.ContainsKey(prop)).ToArray();
 
                 foreach (var prop in removeProps)
                 {
-                    // remove redundent properties
-                    propTelematry.Properties.Remove(prop);
+                    // remove redundant properties
+                    propTelemetry.Properties.Remove(prop);
                 }
 
                 yield return telemetry;

@@ -21,7 +21,7 @@ namespace MigrationTools.Host.Services
             Stopwatch mainTimer = Stopwatch.StartNew();
             //////////////////////////////////
             bool isOnline = false;
-            string responce = "none";
+            string response = "none";
             try
             {
                 Ping myPing = new Ping();
@@ -30,22 +30,22 @@ namespace MigrationTools.Host.Services
                 int timeout = 1000;
                 PingOptions pingOptions = new PingOptions();
                 PingReply reply = myPing.Send(host, timeout, buffer, pingOptions);
-                responce = reply.Status.ToString();
+                response = reply.Status.ToString();
                 if (reply.Status == IPStatus.Success)
                 {
                     isOnline = true;
                 }
                 mainTimer.Stop();
-                _Telemetry.TrackDependency(new DependencyTelemetry("Ping", "GoogleDNS", "IsOnline", null, startTime, mainTimer.Elapsed, responce, true));
+                _Telemetry.TrackDependency(new DependencyTelemetry("Ping", "GoogleDNS", "IsOnline", null, startTime, mainTimer.Elapsed, response, true));
             }
             catch (Exception ex)
             {
                 mainTimer.Stop();
-                // Likley no network is even available
+                // Likely no network is even available
                 Log.Error(ex, "Error checking if we are online.");
-                responce = "error";
+                response = "error";
                 isOnline = false;
-                _Telemetry.TrackDependency(new DependencyTelemetry("Ping", "GoogleDNS", "IsOnline", null, startTime, mainTimer.Elapsed, responce, false));
+                _Telemetry.TrackDependency(new DependencyTelemetry("Ping", "GoogleDNS", "IsOnline", null, startTime, mainTimer.Elapsed, response, false));
             }
             /////////////////
             mainTimer.Stop();

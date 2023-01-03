@@ -29,7 +29,7 @@ namespace MigrationTools.Host.Services
             //////////////////////////////////
             Version latestPackageVersion = null;
             string packageID = "vsts-sync-migrator";
-            bool sucess = false;
+            bool success = false;
             try
             {
                 //Connect to the official package repository
@@ -37,15 +37,15 @@ namespace MigrationTools.Host.Services
                 latestPackageVersion = versions.Max(p => p.Version);
                 if (latestPackageVersion != null)
                 {
-                    sucess = true;
+                    success = true;
                 }
-                _Telemetry.TrackDependency(new DependencyTelemetry("PackageRepository", "chocolatey.org", "vsts-sync-migrator", latestPackageVersion == null ? "nullVersion" : latestPackageVersion.ToString(), startTime, mainTimer.Elapsed, "200", sucess));
+                _Telemetry.TrackDependency(new DependencyTelemetry("PackageRepository", "chocolatey.org", "vsts-sync-migrator", latestPackageVersion == null ? "nullVersion" : latestPackageVersion.ToString(), startTime, mainTimer.Elapsed, "200", success));
             }
             catch (Exception ex)
             {
                 Log.Error(ex, "DetectVersionService");
-                sucess = false;
-                _Telemetry.TrackDependency(new DependencyTelemetry("PackageRepository", "chocolatey.org", "vsts-sync-migrator", latestPackageVersion == null ? "nullVersion" : latestPackageVersion.ToString(), startTime, mainTimer.Elapsed, "500", sucess));
+                success = false;
+                _Telemetry.TrackDependency(new DependencyTelemetry("PackageRepository", "chocolatey.org", "vsts-sync-migrator", latestPackageVersion == null ? "nullVersion" : latestPackageVersion.ToString(), startTime, mainTimer.Elapsed, "500", success));
             }
             /////////////////
             mainTimer.Stop();

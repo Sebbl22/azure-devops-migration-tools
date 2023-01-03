@@ -13,15 +13,15 @@ using MigrationTools.Processors;
 
 namespace MigrationTools.Enrichers
 {
-    public class TfsWorkItemEmbededLinkEnricher : WorkItemProcessorEnricher
+    public class TfsWorkItemEmbeddedLinkEnricher : WorkItemProcessorEnricher
     {
-        private const string LogTypeName = nameof(TfsWorkItemEmbededLinkEnricher);
+        private const string LogTypeName = nameof(TfsWorkItemEmbeddedLinkEnricher);
         private const string RegexPatternLinkAnchorTag = "<a[^>].*?(?:href=\"(?<href>[^\"]*)\".*?|(?<version>data-vss-mention=\"[^\"]*\").*?)*>(?<value>.*?)<\\/a?>";
         private const string RegexPatternWorkItemUrl = "http[s]*://.*?/_workitems/edit/(?<id>\\d+)";
         private readonly Lazy<List<TeamFoundationIdentity>> _targetTeamFoundationIdentitiesLazyCache;
         private readonly IMigrationEngine Engine;
 
-        public TfsWorkItemEmbededLinkEnricher(IServiceProvider services, ILogger<TfsWorkItemEmbededLinkEnricher> logger)
+        public TfsWorkItemEmbeddedLinkEnricher(IServiceProvider services, ILogger<TfsWorkItemEmbeddedLinkEnricher> logger)
             : base(services, logger)
         {
             Engine = services.GetRequiredService<IMigrationEngine>();
@@ -136,7 +136,7 @@ namespace MigrationTools.Enrichers
             return 0;
         }
 
-        [Obsolete("v2 Archtecture: use Configure(bool save = true, bool filter = true) instead", true)]
+        [Obsolete("v2 Architecture: use Configure(bool save = true, bool filter = true) instead", true)]
         public override void Configure(IProcessorEnricherOptions options)
         {
             throw new NotImplementedException();

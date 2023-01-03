@@ -23,7 +23,7 @@ namespace MigrationTools.Enrichers
             _maxAttachmentSize = maxAttachmentSize;
         }
 
-        public void ProcessAttachemnts(WorkItemData source, WorkItemData target, bool save = true)
+        public void ProcessAttachments(WorkItemData source, WorkItemData target, bool save = true)
         {
             if (source is null)
             {
@@ -35,7 +35,7 @@ namespace MigrationTools.Enrichers
                 throw new ArgumentNullException(nameof(target));
             }
 
-            Log.Information("AttachmentMigrationEnricher: Migrating  {AttachmentCount} attachemnts from {SourceWorkItemID} to {TargetWorkItemID}", source.ToWorkItem().Attachments.Count, source.Id, target.Id);
+            Log.Information("AttachmentMigrationEnricher: Migrating  {AttachmentCount} attachments from {SourceWorkItemID} to {TargetWorkItemID}", source.ToWorkItem().Attachments.Count, source.Id, target.Id);
             _exportWiPath = Path.Combine(_exportBasePath, source.ToWorkItem().Id.ToString());
             if (System.IO.Directory.Exists(_exportWiPath))
             {
@@ -45,12 +45,12 @@ namespace MigrationTools.Enrichers
 
 
             int count = 0;
-            foreach (Attachment wia in source.ToWorkItem().Attachments) // TODO#1 Limit to 100 attachements
+            foreach (Attachment wia in source.ToWorkItem().Attachments) // TODO#1 Limit to 100 attachments
             {
                 count++;
                 if (count > 100)
                 {
-                    break; 
+                    break;
                 }
 
                 try
@@ -61,19 +61,19 @@ namespace MigrationTools.Enrichers
                     Log.Debug("AttachmentMigrationEnricher: Exported {Filename} to disk", System.IO.Path.GetFileName(filepath));
                     if (filepath != null)
                     {
-                        ImportAttachemnt(target.ToWorkItem(), wia, filepath, save);
+                        ImportAttachment(target.ToWorkItem(), wia, filepath, save);
                         Log.Debug("AttachmentMigrationEnricher: Imported {Filename} from disk", System.IO.Path.GetFileName(filepath));
                     }
                 }
                 catch (Exception ex)
                 {
-                    Log.Error(ex, "AttachmentMigrationEnricher:Unable to process atachment from source wi {SourceWorkItemId} called {AttachmentName}", source.ToWorkItem().Id, wia.Name);
+                    Log.Error(ex, "AttachmentMigrationEnricher:Unable to process attachment from source wi {SourceWorkItemId} called {AttachmentName}", source.ToWorkItem().Id, wia.Name);
                 }
             }
             if (save)
             {
                 target.SaveToAzureDevOps();
-                Log.Information("Work iTem now has {AttachmentCount} attachemnts", source.ToWorkItem().Attachments.Count);
+                Log.Information("Work iTem now has {AttachmentCount} attachments", source.ToWorkItem().Attachments.Count);
                 CleanUpAfterSave();
             }
         }
@@ -98,9 +98,9 @@ namespace MigrationTools.Enrichers
         {
             string fname = GetSafeFilename(wia.Name);
             Log.Debug(fname);
-            
+
             string fpath = Path.Combine(exportpath, wia.Id.ToString(), fname);
-            
+
             if (!File.Exists(fpath))
             {
                 Log.Debug(string.Format("...downloading {0} to {1}", fname, exportpath));
@@ -111,7 +111,7 @@ namespace MigrationTools.Enrichers
                 }
                 catch (Exception ex)
                 {
-                    Log.Error(ex, "Exception downloading attachements");
+                    Log.Error(ex, "Exception downloading attachments");
                     return null;
                 }
             }
@@ -122,7 +122,7 @@ namespace MigrationTools.Enrichers
             return fpath;
         }
 
-        private void ImportAttachemnt(WorkItem targetWorkItem, Attachment wia, string filepath, bool save = true)
+        private void ImportAttachment(WorkItem targetWorkItem, Attachment wia, string filepath, bool save = true)
         {
             var filename = System.IO.Path.GetFileName(filepath);
             FileInfo fi = new FileInfo(filepath);
@@ -142,7 +142,7 @@ namespace MigrationTools.Enrichers
             }
             else
             {
-                Log.Warning(" [SKIP] Attachemnt {filename} on Work Item {targetWorkItemId} is bigger than the limit of {maxAttachmentSize} bites for Azure DevOps.", filename, targetWorkItem.Id, _maxAttachmentSize);
+                Log.Warning(" [SKIP] Attachment {filename} on Work Item {targetWorkItemId} is bigger than the limit of {maxAttachmentSize} bites for Azure DevOps.", filename, targetWorkItem.Id, _maxAttachmentSize);
             }
         }
 

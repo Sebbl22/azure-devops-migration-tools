@@ -18,14 +18,14 @@ namespace MigrationTools.ConsoleCore
             hostBuilder
                 .ConfigureServices((context, services) =>
                 {
-                    // Field Mapps
+                    // Field Maps
                     services.AddTransient<FieldBlankMap>();
                     services.AddTransient<FieldLiteralMap>();
                     services.AddTransient<FieldMergeMap>();
                     services.AddTransient<FieldToFieldMap>();
-                    services.AddTransient<FieldtoFieldMultiMap>();
+                    services.AddTransient<FieldToFieldMultiMap>();
                     services.AddTransient<FieldToTagFieldMap>();
-                    services.AddTransient<FieldValuetoTagMap>();
+                    services.AddTransient<FieldValueToTagMap>();
                     services.AddTransient<MultiValueConditionalMap>();
                     services.AddTransient<RegexFieldMap>();
                     services.AddTransient<TreeToTagFieldMap>();

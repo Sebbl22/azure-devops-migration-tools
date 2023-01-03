@@ -43,7 +43,7 @@ namespace MigrationTools._EngineV1.Clients
         }
 
         // Fix for Query SOAP error when passing parameters
-        [Obsolete("Temporary work aorund for SOAP issue https://dev.azure.com/nkdagility/migration-tools/_workitems/edit/5066")]
+        [Obsolete("Temporary work around for SOAP issue https://dev.azure.com/nkdagility/migration-tools/_workitems/edit/5066")]
         private string WorkAroundForSOAPError(string query)
         {
             foreach (var parameter in _parameters)
@@ -54,7 +54,7 @@ namespace MigrationTools._EngineV1.Clients
                     query = Regex.Replace(query, $@"(?<=[=\s])@{parameter.Key}(?=$|\s)", $"'{parameter.Value}'");
                 }
 
-                // replace the other occurences of this key
+                // replace the other occurrences of this key
                 query = query.Replace(string.Format($"@{parameter.Key}"), parameter.Value);
             }
             return query;

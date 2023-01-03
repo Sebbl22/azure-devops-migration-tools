@@ -25,7 +25,7 @@ namespace MigrationTools.Processors
         public bool MigrateTaskGroups { get; set; }
 
         /// <summary>
-        /// Migrate Valiable Groups
+        /// Migrate Variable Groups
         /// </summary>
         /// <default>true</default>
         public bool MigrateVariableGroups { get; set; }
@@ -47,7 +47,7 @@ namespace MigrationTools.Processors
         public List<string> ReleasePipelines { get; set; }
 
         /// <summary>
-        /// Map of Source Repository to Target Repository Names 
+        /// Map of Source Repository to Target Repository Names
         /// </summary>
         public Dictionary<string, string> RepositoryNameMaps { get; set; } //Can we reuse GitRepoMapping?
 

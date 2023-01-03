@@ -1,4 +1,4 @@
-﻿//New COmment
+﻿//New Comment
 using Microsoft.Extensions.Logging;
 using Microsoft.TeamFoundation.WorkItemTracking.Client;
 using MigrationTools._EngineV1.Configuration.FieldMap;

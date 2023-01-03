@@ -27,11 +27,11 @@ namespace MigrationTools.Enrichers
             var repoType = DetermineFromLink(gitExternalLink.LinkedArtifactUri);
             switch (repoType)
             {
-                case RepistoryType.Git:
+                case RepositoryType.Git:
                     return CreateFromGit(gitExternalLink, possibleRepos);
 
-                case RepistoryType.TFVC:
-                    return CreateFromTFVC(gitExternalLink, possibleRepos, migrationEngine.ChangeSetMapps.Items, migrationEngine.Source.Config.AsTeamProjectConfig().Project, workItemSourceProjectName);
+                case RepositoryType.TFVC:
+                    return CreateFromTFVC(gitExternalLink, possibleRepos, migrationEngine.ChangeSetMaps.Items, migrationEngine.Source.Config.AsTeamProjectConfig().Project, workItemSourceProjectName);
             }
 
             return null;
@@ -57,14 +57,14 @@ namespace MigrationTools.Enrichers
             return new TfsGitRepositoryInfo(commitIDKvPair.Value, null, new GitRepository() { Name = workItemSourceProjectName });
         }
 
-        private enum RepistoryType
+        private enum RepositoryType
         {
             Unknown,
             TFVC,
             Git
         }
 
-        private static RepistoryType DetermineFromLink(string link)
+        private static RepositoryType DetermineFromLink(string link)
         {
             if (string.IsNullOrEmpty(link))
                 throw new ArgumentNullException("link");
@@ -75,15 +75,15 @@ namespace MigrationTools.Enrichers
             if (link.ToLowerInvariant().Contains("git/commit")
                 || link.ToLowerInvariant().Contains("git/pullrequestid")
                 || link.ToLowerInvariant().Contains("git/ref"))
-                return RepistoryType.Git;
+                return RepositoryType.Git;
 
             //vstfs:///VersionControl/Changeset/{id}
             if (link.ToLowerInvariant().Contains("versioncontrol/changeset"))
-                return RepistoryType.TFVC;
+                return RepositoryType.TFVC;
 
             Log.Debug("GitRepositoryInfo: Cannot determine repository type from external link: {link}");
 
-            return RepistoryType.Unknown;
+            return RepositoryType.Unknown;
         }
 
         public static TfsGitRepositoryInfo CreateFromGit(ExternalLink gitExternalLink, IList<GitRepository> possibleRepos)

@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 namespace MigrationTools.DataContracts.Pipelines
 {
     [ApiPath("build/definitions")]
-    [ApiName("Build Piplines")]
+    [ApiName("Build Pipelines")]
     public partial class BuildDefinition : RestApiDefinition
     {
         public ExpandoObject[] Options { get; set; }
@@ -196,7 +196,7 @@ namespace MigrationTools.DataContracts.Pipelines
         public bool ShouldSerializeYamlFilename() => this.Type == 2;
 
         /// <summary>
-        /// If the type is 1 then this is a classis pipeline, so the phases should be serialized.
+        /// If the type is 1 then this is a class pipeline, so the phases should be serialized.
         /// </summary>
         /// <returns>bool on if the Phases should be serialized.</returns>
         public bool ShouldSerializePhases() => this.Type == 1;

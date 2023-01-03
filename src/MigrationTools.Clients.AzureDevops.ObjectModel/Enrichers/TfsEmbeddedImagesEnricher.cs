@@ -17,11 +17,11 @@ using MigrationTools.Processors;
 
 namespace MigrationTools.Enrichers
 {
-    public class TfsEmbededImagesEnricher : EmbededImagesRepairEnricherBase
+    public class TfsEmbeddedImagesEnricher : EmbeddedImagesRepairEnricherBase
     {
         private const string RegexPatternForImageUrl = "(?<=<img.*?src=\")[^\"]*";
         private const string RegexPatternForImageFileName = "(?<=FileName=)[^=]*";
-        private const string TargetDummyWorkItemTitle = "***** DELETE THIS - Migration Tool Generated Dummy Work Item For TfsEmbededImagesEnricher *****";
+        private const string TargetDummyWorkItemTitle = "***** DELETE THIS - Migration Tool Generated Dummy Work Item For TfsEmbeddedImagesEnricher *****";
 
         private readonly Project _targetProject;
         private readonly TfsTeamProjectConfig _targetConfig;
@@ -32,7 +32,7 @@ namespace MigrationTools.Enrichers
 
         public IMigrationEngine Engine { get; private set; }
 
-        public TfsEmbededImagesEnricher(IServiceProvider services, ILogger<TfsEmbededImagesEnricher> logger) : base(services, logger)
+        public TfsEmbeddedImagesEnricher(IServiceProvider services, ILogger<TfsEmbeddedImagesEnricher> logger) : base(services, logger)
         {
             Engine = services.GetRequiredService<IMigrationEngine>();
             _targetProject = Engine.Target.WorkItems.Project.ToProject();
@@ -47,7 +47,7 @@ namespace MigrationTools.Enrichers
             throw new NotImplementedException();
         }
 
-        [Obsolete("v2 Archtecture: use Configure(bool save = true, bool filter = true) instead", true)]
+        [Obsolete("v2 Architecture: use Configure(bool save = true, bool filter = true) instead", true)]
         public override void Configure(IProcessorEnricherOptions options)
         {
             throw new NotImplementedException();
@@ -56,7 +56,7 @@ namespace MigrationTools.Enrichers
         [Obsolete]
         public override int Enrich(WorkItemData sourceWorkItem, WorkItemData targetWorkItem)
         {
-            FixEmbededImages(targetWorkItem, Engine.Source.Config.AsTeamProjectConfig().Collection.ToString(), Engine.Target.Config.AsTeamProjectConfig().Collection.ToString(), Engine.Source.Config.AsTeamProjectConfig().PersonalAccessToken);
+            FixEmbeddedImages(targetWorkItem, Engine.Source.Config.AsTeamProjectConfig().Collection.ToString(), Engine.Target.Config.AsTeamProjectConfig().Collection.ToString(), Engine.Source.Config.AsTeamProjectConfig().PersonalAccessToken);
             return 0;
         }
 
@@ -73,9 +73,9 @@ namespace MigrationTools.Enrichers
       *  from https://gist.github.com/pietergheysens/792ed505f09557e77ddfc1b83531e4fb
       */
 
-        protected override void FixEmbededImages(WorkItemData wi, string oldTfsurl, string newTfsurl, string sourcePersonalAccessToken = "")
+        protected override void FixEmbeddedImages(WorkItemData wi, string oldTfsurl, string newTfsurl, string sourcePersonalAccessToken = "")
         {
-            Log.LogInformation("EmbededImagesRepairEnricher: Fixing HTML field attachments for work item {Id} from {OldTfsurl} to {NewTfsUrl}", wi.Id, oldTfsurl, newTfsurl);
+            Log.LogInformation("EmbeddedImagesRepairEnricher: Fixing HTML field attachments for work item {Id} from {OldTfsurl} to {NewTfsUrl}", wi.Id, oldTfsurl, newTfsurl);
 
             var oldTfsurlOppositeSchema = GetUrlWithOppositeSchema(oldTfsurl);
 
@@ -117,7 +117,7 @@ namespace MigrationTools.Enrichers
                 }
                 catch (Exception ex)
                 {
-                    Log.LogError(ex, "EmbededImagesRepairEnricher: Unable to fix HTML field attachments for work item {wiId} from {oldTfsurl} to {newTfsurl}", wi.Id, oldTfsurl, newTfsurl);
+                    Log.LogError(ex, "EmbeddedImagesRepairEnricher: Unable to fix HTML field attachments for work item {wiId} from {oldTfsurl} to {newTfsurl}", wi.Id, oldTfsurl, newTfsurl);
                 }
             }
         }
@@ -128,7 +128,7 @@ namespace MigrationTools.Enrichers
             Match newFileNameMatch = Regex.Match(matchedSourceUri, RegexPatternForImageFileName, RegexOptions.IgnoreCase);
             if (!newFileNameMatch.Success) return null;
 
-            Log.LogDebug("EmbededImagesRepairEnricher: field '{fieldName}' has match: {matchValue}", sourceFieldName, System.Net.WebUtility.HtmlDecode(matchedSourceUri));
+            Log.LogDebug("EmbeddedImagesRepairEnricher: field '{fieldName}' has match: {matchValue}", sourceFieldName, System.Net.WebUtility.HtmlDecode(matchedSourceUri));
             string fullImageFilePath = Path.GetTempPath() + newFileNameMatch.Value;
 
             try
@@ -144,7 +144,7 @@ namespace MigrationTools.Enrichers
                     {
                         if (_ignore404Errors && result.StatusCode == HttpStatusCode.NotFound)
                         {
-                            Log.LogDebug("EmbededImagesRepairEnricher: Image {MatchValue} could not be found in WorkItem {WorkItemId}, Field {FieldName}", matchedSourceUri, targetWorkItem.Id, sourceFieldName);
+                            Log.LogDebug("EmbeddedImagesRepairEnricher: Image {MatchValue} could not be found in WorkItem {WorkItemId}, Field {FieldName}", matchedSourceUri, targetWorkItem.Id, sourceFieldName);
                             return null;
                         }
                         else
@@ -191,7 +191,7 @@ namespace MigrationTools.Enrichers
             }
 
             // Attaches it with dummy work item and removes it just to be able to make the image visible to all the users.
-            // VS402330: Unauthorized Read access to the attachment under the areas 
+            // VS402330: Unauthorized Read access to the attachment under the areas
             var payload = new Microsoft.VisualStudio.Services.WebApi.Patch.Json.JsonPatchDocument();
             payload.Add(new Microsoft.VisualStudio.Services.WebApi.Patch.Json.JsonPatchOperation()
             {
@@ -249,7 +249,7 @@ namespace MigrationTools.Enrichers
                 _targetDummyWorkItem = type.NewWorkItem();
                 _targetDummyWorkItem.Title = TargetDummyWorkItemTitle;
                 _targetDummyWorkItem.Save();
-                Log.LogDebug("EmbededImagesRepairEnricher: Dummy workitem {id} created on the target collection.", _targetDummyWorkItem.Id);
+                Log.LogDebug("EmbeddedImagesRepairEnricher: Dummy workitem {id} created on the target collection.", _targetDummyWorkItem.Id);
                 //_targetProject.Store.DestroyWorkItems(new List<int> { _targetDummyWorkItem.Id });
             }
             return _targetDummyWorkItem;

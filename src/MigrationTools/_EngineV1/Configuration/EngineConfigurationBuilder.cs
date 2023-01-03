@@ -48,7 +48,7 @@ namespace MigrationTools._EngineV1.Configuration
                 _logger.LogTrace(ex, "Configuration Error");
                 _logger.LogCritical("Your configuration file was loaded but was unable to be mapped to ");
                 _logger.LogError(ex.Message);
-                _logger.LogError("How to Solve: Malformed configurations are usually a result of changes between versions. The best way to understand the change is to run 'migration.exe init' to create a new wel formed config and determin where the problem is!");
+                _logger.LogError("How to Solve: Malformed configurations are usually a result of changes between versions. The best way to understand the change is to run 'migration.exe init' to create a new wel formed config and determine where the problem is!");
                 Environment.Exit(-1);
                 return null;
             }
@@ -63,7 +63,7 @@ namespace MigrationTools._EngineV1.Configuration
             string appVersion = Assembly.GetExecutingAssembly().GetName().Version.ToString(2);
             if (ec?.Version != appVersion)
             {
-                _logger.LogError("The config version {Version} does not match the current app version {appVersion}. There may be compatability issues and we recommend that you generate a new default config and then tranfer the settings accross.", ec.Version, appVersion);
+                _logger.LogError("The config version {Version} does not match the current app version {appVersion}. There may be compatability issues and we recommend that you generate a new default config and then transfer the settings across.", ec.Version, appVersion);
                 if (System.Diagnostics.Debugger.IsAttached)
                 {
                     _logger.LogInformation("But since you're running in Debug, let's move on");
@@ -92,7 +92,7 @@ namespace MigrationTools._EngineV1.Configuration
         public EngineConfiguration BuildDefault()
         {
             EngineConfiguration ec = CreateEmptyConfig();
-            AddExampleFieldMapps(ec);
+            AddExampleFieldMaps(ec);
             AddWorkItemMigrationDefault(ec);
             AddTestPlansMigrationDefault(ec);
             ec.Processors.Add(new ImportProfilePictureConfig());
@@ -109,7 +109,7 @@ namespace MigrationTools._EngineV1.Configuration
         public EngineConfiguration BuildWorkItemMigration()
         {
             EngineConfiguration ec = CreateEmptyConfig();
-            AddExampleFieldMapps(ec);
+            AddExampleFieldMaps(ec);
             AddWorkItemMigrationDefault(ec);
             return ec;
         }
@@ -147,7 +147,7 @@ namespace MigrationTools._EngineV1.Configuration
             //ec.Processors.Add(new TestRunsMigrationConfig());
         }
 
-        private void AddExampleFieldMapps(EngineConfiguration ec)
+        private void AddExampleFieldMaps(EngineConfiguration ec)
         {
             ec.FieldMaps.Add(new MultiValueConditionalMapConfig()
             {
@@ -184,13 +184,13 @@ namespace MigrationTools._EngineV1.Configuration
                     { "Removed", "Removed" }
                 }
             });
-            ec.FieldMaps.Add(new FieldtoFieldMapConfig()
+            ec.FieldMaps.Add(new FieldToFieldMapConfig()
             {
                 WorkItemTypeName = "*",
                 sourceField = "Microsoft.VSTS.Common.BacklogPriority",
                 targetField = "Microsoft.VSTS.Common.StackRank"
             });
-            ec.FieldMaps.Add(new FieldtoFieldMultiMapConfig()
+            ec.FieldMaps.Add(new FieldToFieldMultiMapConfig()
             {
                 WorkItemTypeName = "*",
                 SourceToTargetMappings = new Dictionary<string, string>
@@ -199,7 +199,7 @@ namespace MigrationTools._EngineV1.Configuration
                     {"SourceField2", "TargetField2" }
                 }
             });
-            ec.FieldMaps.Add(new FieldtoTagMapConfig()
+            ec.FieldMaps.Add(new FieldToTagMapConfig()
             {
                 WorkItemTypeName = "*",
                 sourceField = "System.State",
@@ -221,7 +221,7 @@ namespace MigrationTools._EngineV1.Configuration
                 pattern = @"PRODUCT \d{4}.(\d{1})",
                 replacement = "$1"
             });
-            ec.FieldMaps.Add(new FieldValuetoTagMapConfig()
+            ec.FieldMaps.Add(new FieldValueToTagMapConfig()
             {
                 WorkItemTypeName = "*",
                 sourceField = "Microsoft.VSTS.CMMI.Blocked",

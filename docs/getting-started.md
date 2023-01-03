@@ -93,14 +93,14 @@ You can now customise the configuration depending on what you need to do. Howeve
       }
     },
     {
-      "$type": "FieldtoFieldMapConfig",
+      "$type": "FieldToFieldMapConfig",
       "WorkItemTypeName": "*",
       "sourceField": "Microsoft.VSTS.Common.BacklogPriority",
       "targetField": "Microsoft.VSTS.Common.StackRank",
       "defaultValue": null
     },
     {
-      "$type": "FieldtoFieldMultiMapConfig",
+      "$type": "FieldToFieldMultiMapConfig",
       "WorkItemTypeName": "*",
       "SourceToTargetMappings": {
         "SourceField1": "TargetField1",
@@ -108,7 +108,7 @@ You can now customise the configuration depending on what you need to do. Howeve
       }
     },
     {
-      "$type": "FieldtoTagMapConfig",
+      "$type": "FieldToTagMapConfig",
       "WorkItemTypeName": "*",
       "sourceField": "System.State",
       "formatExpression": "ScrumState:{0}"
@@ -132,7 +132,7 @@ You can now customise the configuration depending on what you need to do. Howeve
       "replacement": "$1"
     },
     {
-      "$type": "FieldValuetoTagMapConfig",
+      "$type": "FieldValueToTagMapConfig",
       "WorkItemTypeName": "*",
       "sourceField": "Microsoft.VSTS.CMMI.Blocked",
       "pattern": "Yes",
@@ -200,7 +200,7 @@ You can now customise the configuration depending on what you need to do. Howeve
 
 The default [WorkItemMigrationConfig](./Processors/WorkItemMigrationConfig.md) processor will perform the following operations:
 
-* Migrate interations and sprints
+* Migrate iterations and sprints
 * Attachments
 * Links including for source code. Optionally clone the repositories before starting the migration to have links maintained on the initial pass.
 

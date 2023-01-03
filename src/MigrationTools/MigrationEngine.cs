@@ -30,7 +30,7 @@ namespace MigrationTools
             TypeDefinitionMapContainer typeDefinitionMaps,
             ProcessorContainer processors,
             GitRepoMapContainer gitRepoMaps,
-            ChangeSetMappingContainer changeSetMapps,
+            ChangeSetMappingContainer changeSetMaps,
             FieldMapContainer fieldMaps,
             ITelemetryLogger telemetry,
             ILogger<MigrationEngine> logger)
@@ -43,13 +43,13 @@ namespace MigrationTools
             TypeDefinitionMaps = typeDefinitionMaps;
             Processors = processors;
             GitRepoMaps = gitRepoMaps;
-            ChangeSetMapps = changeSetMapps;
+            ChangeSetMaps = changeSetMaps;
             _telemetryLogger = telemetry;
             _engineConfiguration = config.Value;
         }
 
-        public ChangeSetMappingContainer ChangeSetMapps { get; }
-        
+        public ChangeSetMappingContainer ChangeSetMaps { get; }
+
         public FieldMapContainer FieldMaps { get; }
 
         public GitRepoMapContainer GitRepoMaps { get; }
@@ -79,7 +79,7 @@ namespace MigrationTools
                 return _target;
             }
         }
-        
+
         public TypeDefinitionMapContainer TypeDefinitionMaps { get; }
 
         public ProcessingStatus Run()
@@ -105,7 +105,7 @@ namespace MigrationTools
             Processors.EnsureConfigured();
             TypeDefinitionMaps.EnsureConfigured();
             GitRepoMaps.EnsureConfigured();
-            ChangeSetMapps.EnsureConfigured();
+            ChangeSetMaps.EnsureConfigured();
             FieldMaps.EnsureConfigured();
 
             _logger.LogInformation("Beginning run of {ProcessorCount} processors", Processors.Count.ToString());

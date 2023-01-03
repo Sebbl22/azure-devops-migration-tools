@@ -16,7 +16,7 @@ namespace MigrationTools.Processors
         public bool PrefixProjectToNodes { get; set; }
 
         /// <summary>
-        /// The name of the shared folder, made a parameter incase it every needs to be edited
+        /// The name of the shared folder, made a parameter in case it every needs to be edited
         /// </summary>
         /// <default>Shared Queries</default>
         public string SharedFolderName { get; set; } = "Shared Queries";

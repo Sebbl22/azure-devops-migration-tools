@@ -228,7 +228,7 @@ namespace MigrationTools.Enrichers
             }
         }
 
-        [Obsolete("v2 Archtecture: use Configure(bool save = true, bool filter = true) instead", true)]
+        [Obsolete("v2 Architecture: use Configure(bool save = true, bool filter = true) instead", true)]
         public override void Configure(IProcessorEnricherOptions options)
         {
             throw new NotImplementedException();

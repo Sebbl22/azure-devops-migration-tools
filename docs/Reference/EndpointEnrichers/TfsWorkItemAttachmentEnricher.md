@@ -4,16 +4,16 @@
 
 [Overview](.././index.md) > [Reference](../index.md) > [EndpointEnrichers](./index.md) > **TfsWorkItemAttachmentEnricher**
 
-missng XML code comments
+missing XML code comments
 
 ### Options
 
 | Parameter name         | Type    | Description                              | Default Value                            |
 |------------------------|---------|------------------------------------------|------------------------------------------|
-| Enabled | Boolean | missng XML code comments | missng XML code comments |
-| WorkingPath | String | missng XML code comments | missng XML code comments |
-| MaxSize | Int32 | missng XML code comments | missng XML code comments |
-| RefName | String | missng XML code comments | missng XML code comments |
+| Enabled | Boolean | missing XML code comments | missing XML code comments |
+| WorkingPath | String | missing XML code comments | missing XML code comments |
+| MaxSize | Int32 | missing XML code comments | missing XML code comments |
+| RefName | String | missing XML code comments | missing XML code comments |
 
 
 ### Example JSON

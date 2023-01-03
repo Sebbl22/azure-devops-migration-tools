@@ -67,7 +67,7 @@ namespace MigrationTools.Processors
         }
 
         /// <summary>
-        /// Executes Method for migrating Taskgroups, Variablegroups or Pipelines, depinding on what
+        /// Executes Method for migrating Taskgroups, Variablegroups or Pipelines, depending on what
         /// is set in the config.
         /// </summary>
         private async System.Threading.Tasks.Task MigratePipelinesAsync()
@@ -116,8 +116,8 @@ namespace MigrationTools.Processors
             // but with different content To make this save we must add a local storage option for
             // the mappings (sid, tid)
             var alreadyMigratedMappings = new List<Mapping>();
-            var alreadyMigratedDefintions = targetDefinitions.Where(t => newMappings.Any(m => m.TargetId == t.Id) == false).ToList();
-            foreach (var item in alreadyMigratedDefintions)
+            var alreadyMigratedDefinitions = targetDefinitions.Where(t => newMappings.Any(m => m.TargetId == t.Id) == false).ToList();
+            foreach (var item in alreadyMigratedDefinitions)
             {
                 var source = sourceDefinitions.FirstOrDefault(d => d.Name == item.Name);
                 if (source == null)
@@ -238,8 +238,8 @@ namespace MigrationTools.Processors
                     .FirstOrDefault(c => c.Id == sourceConnectedServiceId)?.Name == s.Name)?.Id;
                 definitionToBeMigrated.Repository.Properties.ConnectedServiceId = targetConnectedServiceId;
 
-                
-                MapRepositoriesInBuidDefinition(sourceRepositories, targetRepositories, definitionToBeMigrated);
+
+                MapRepositoriesInBuildDefinition(sourceRepositories, targetRepositories, definitionToBeMigrated);
 
                 if (TaskGroupMapping is not null)
                 {
@@ -289,7 +289,7 @@ namespace MigrationTools.Processors
             return mappings;
         }
 
-        private void MapRepositoriesInBuidDefinition(IEnumerable<GitRepository> sourceRepositories, IEnumerable<GitRepository> targetRepositories, BuildDefinition definitionToBeMigrated)
+        private void MapRepositoriesInBuildDefinition(IEnumerable<GitRepository> sourceRepositories, IEnumerable<GitRepository> targetRepositories, BuildDefinition definitionToBeMigrated)
         {
             var sourceRepoId = definitionToBeMigrated.Repository.Id;
             string sourceRepositoryName = sourceRepositories.FirstOrDefault(s => s.Id == sourceRepoId)?.Name;
@@ -571,7 +571,7 @@ namespace MigrationTools.Processors
             mappings.AddRange(FindExistingMappings(sourceDefinitions, targetDefinitions, mappings));
             return mappings;
 
-            
+
         }
     }
 }

@@ -28,11 +28,11 @@ namespace MigrationTools.FieldMaps.AzureDevops.ObjectModel
                 {
                     fieldsUpdate(Config.targetFieldsAndValues, target);
                 }
-                Log.LogDebug("FieldValuetoTagMap: [UPDATE] field mapped {0}:{1} to {2}:{3}", source.Id, Config.sourceFieldsAndValues?.Keys.ToString(), target.Id, Config.targetFieldsAndValues?.Keys.ToString());
+                Log.LogDebug("FieldValueToTagMap: [UPDATE] field mapped {0}:{1} to {2}:{3}", source.Id, Config.sourceFieldsAndValues?.Keys.ToString(), target.Id, Config.targetFieldsAndValues?.Keys.ToString());
             }
             else
             {
-                Log.LogDebug("FieldValuetoTagMap: [SKIPPED] Not all source and target fields exist", source.Id, Config.sourceFieldsAndValues?.Keys.ToString(), target.Id, Config.targetFieldsAndValues?.Keys.ToString());
+                Log.LogDebug("FieldValueToTagMap: [SKIPPED] Not all source and target fields exist", source.Id, Config.sourceFieldsAndValues?.Keys.ToString(), target.Id, Config.targetFieldsAndValues?.Keys.ToString());
             }
         }
 

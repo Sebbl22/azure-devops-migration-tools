@@ -24,7 +24,7 @@ namespace MigrationTools.Host.Tests
         }
 
         [TestMethod, TestCategory("L1"), TestCategory("Host")]
-        [Ignore("need to ignore for now, untill we get some generic field maps")]
+        [Ignore("need to ignore for now, until we get some generic field maps")]
         public void TestEngineExecuteEmptyProcessors()
         {
             EngineConfiguration ec = host.Services.GetRequiredService<EngineConfiguration>();

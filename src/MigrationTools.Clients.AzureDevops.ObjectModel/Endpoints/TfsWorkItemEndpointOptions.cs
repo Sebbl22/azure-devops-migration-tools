@@ -16,7 +16,7 @@ namespace MigrationTools.Endpoints
         //                     "WHERE [System.TeamProject] = @TeamProject " +
         //                         "AND [System.WorkItemType] NOT IN ('Test Suite', 'Test Plan') " +
         //                     "ORDER BY [System.ChangedDate] desc",
-        //        Paramiters = new Dictionary<string, string>() { { "TeamProject", "migrationSource1" } }
+        //        Parameters = new Dictionary<string, string>() { { "TeamProject", "migrationSource1" } }
         //    };
         //}
     }

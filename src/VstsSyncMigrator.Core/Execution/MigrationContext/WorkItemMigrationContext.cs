@@ -63,7 +63,7 @@ namespace VstsSyncMigrator.Engine
                                         TfsNodeStructure nodeStructureEnricher,
                                         TfsRevisionManager revisionManager,
                                         TfsWorkItemLinkEnricher workItemLinkEnricher,
-                                        TfsWorkItemEmbededLinkEnricher workItemEmbeddedLinkEnricher,
+                                        TfsWorkItemEmbeddedLinkEnricher workItemEmbeddedLinkEnricher,
                                         TfsValidateRequiredField requiredFieldValidator,
                                         IOptions<EngineConfiguration> engineConfig)
             : base(engine, services, telemetry, logger)
@@ -130,7 +130,7 @@ namespace VstsSyncMigrator.Engine
 
             var workItemServer = Engine.Source.GetService<WorkItemServer>();
             attachmentEnricher = new TfsAttachmentEnricher(workItemServer, _config.AttachmentWorkingPath, _config.AttachmentMaxSize);
-            embededImagesEnricher = Services.GetRequiredService<TfsEmbededImagesEnricher>();
+            embededImagesEnricher = Services.GetRequiredService<TfsEmbeddedImagesEnricher>();
             gitRepositoryEnricher = Services.GetRequiredService<TfsGitRepositoryEnricher>();
 
             _nodeStructureEnricher.ProcessorExecutionBegin(null);
@@ -160,7 +160,7 @@ namespace VstsSyncMigrator.Engine
                     if (_config.StopMigrationOnMissingAreaIterationNodes)
                     {
                         throw new Exception("Missing Iterations in Target preventing progress, check log for list. If you resolve with a FieldMap set StopMigrationOnMissingAreaIterationNodes = false in the config to continue.");
-                    }                    
+                    }
                 }
                 //////////////////////////////////////////////////
                 contextLog.Information("Found target project as {@destProject}", Engine.Target.WorkItems.Project.Name);
@@ -325,7 +325,7 @@ namespace VstsSyncMigrator.Engine
             }
             else
             {
-                throw new Exception(string.Format("WARNING: Unable to find '{0}' in the target project. Most likley this is due to a typo in the .json configuration under WorkItemTypeDefinition! ", destType));
+                throw new Exception(string.Format("WARNING: Unable to find '{0}' in the target project. Most likely this is due to a typo in the .json configuration under WorkItemTypeDefinition! ", destType));
             }
             newWorkItemTimer.Stop();
             Telemetry.TrackDependency(new DependencyTelemetry("TfsObjectModel", Engine.Target.Config.AsTeamProjectConfig().Collection.ToString(), "NewWorkItem", null, newWorkItemstartTime, newWorkItemTimer.Elapsed, "200", true));
@@ -536,15 +536,15 @@ namespace VstsSyncMigrator.Engine
                 Log.LogError(ex, "Some kind of internet pipe blockage");
                 if (retries < retryLimit)
                 {
-                    TraceWriteLine(LogEventLevel.Warning, "WebException: Will retry in {retrys}s ",
+                    TraceWriteLine(LogEventLevel.Warning, "WebException: Will retry in {retries}s ",
                         new Dictionary<string, object>() {
-                            {"retrys", retries }
+                            {"retries", retries }
                         });
                     System.Threading.Thread.Sleep(new TimeSpan(0, 0, retries));
                     retries++;
-                    TraceWriteLine(LogEventLevel.Warning, "RETRY {Retrys}/{RetryLimit} ",
+                    TraceWriteLine(LogEventLevel.Warning, "RETRY {Retries}/{RetryLimit} ",
                         new Dictionary<string, object>() {
-                            {"Retrys", retries },
+                            {"Retries", retries },
                             {"RetryLimit", retryLimit }
                         });
                     await ProcessWorkItemAsync(sourceWorkItem, retryLimit, retries);
@@ -583,8 +583,8 @@ namespace VstsSyncMigrator.Engine
         {
             if (targetWorkItem != null && _config.AttachmentMigration && sourceWorkItem.ToWorkItem().Attachments.Count > 0)
             {
-                TraceWriteLine(LogEventLevel.Information, "Attachemnts {SourceWorkItemAttachmentCount} | LinkMigrator:{AttachmentMigration}", new Dictionary<string, object>() { { "SourceWorkItemAttachmentCount", sourceWorkItem.ToWorkItem().Attachments.Count }, { "AttachmentMigration", _config.AttachmentMigration } });
-                attachmentEnricher.ProcessAttachemnts(sourceWorkItem, targetWorkItem, save);
+                TraceWriteLine(LogEventLevel.Information, "Attachments {SourceWorkItemAttachmentCount} | LinkMigrator:{AttachmentMigration}", new Dictionary<string, object>() { { "SourceWorkItemAttachmentCount", sourceWorkItem.ToWorkItem().Attachments.Count }, { "AttachmentMigration", _config.AttachmentMigration } });
+                attachmentEnricher.ProcessAttachments(sourceWorkItem, targetWorkItem, save);
                 AddMetric("Attachments", processWorkItemMetrics, targetWorkItem.ToWorkItem().AttachedFileCount);
             }
         }

@@ -34,7 +34,7 @@ namespace MigrationTools.Clients.Tests
             var found = list.Find(x => x.Id == workItem.Id);
             if (found != null)
             {
-                // Add Revission
+                // Add Revision
                 found.Title = workItem.Title;
                 return workItem;
             }

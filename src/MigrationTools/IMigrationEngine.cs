@@ -14,7 +14,7 @@ namespace MigrationTools
 
         TypeDefinitionMapContainer TypeDefinitionMaps { get; }
         GitRepoMapContainer GitRepoMaps { get; }
-        ChangeSetMappingContainer ChangeSetMapps { get; }
+        ChangeSetMappingContainer ChangeSetMaps { get; }
         FieldMapContainer FieldMaps { get; }
     }
 }

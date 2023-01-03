@@ -25,7 +25,7 @@ namespace MigrationTools.Clients.AzureDevops.Rest.FieldMaps
             }
             catch (Exception ex)
             {
-                Log.Error(ex, "Field mapp fault",
+                Log.Error(ex, "Field map fault",
                        new Dictionary<string, string> {
                             { "Source", source.ToWorkItem().Id.ToString() },
                             { "Target",  target.ToWorkItem().Id.ToString()}

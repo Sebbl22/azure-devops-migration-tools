@@ -228,8 +228,8 @@ namespace MigrationTools._EngineV1.Clients
                 var workItemQueryBuilder = CreateReflectedWorkItemQuery(refId.ToString());
                 var query = workItemQueryBuilder.BuildWIQLQuery(MigrationClient);
                 var items = query.GetWorkItems();
-                var reflectedFielName = MigrationClient.Config.AsTeamProjectConfig().ReflectedWorkItemIDFieldName;
-                foundWorkItem = items.FirstOrDefault(wi => wi.ToWorkItem().Fields[reflectedFielName].Value.ToString() == refId.ToString());
+                var reflectedFieldName = MigrationClient.Config.AsTeamProjectConfig().ReflectedWorkItemIDFieldName;
+                foundWorkItem = items.FirstOrDefault(wi => wi.ToWorkItem().Fields[reflectedFieldName].Value.ToString() == refId.ToString());
                 if (cache && foundWorkItem is not null)
                 {
                     AddToCache(foundWorkItem);

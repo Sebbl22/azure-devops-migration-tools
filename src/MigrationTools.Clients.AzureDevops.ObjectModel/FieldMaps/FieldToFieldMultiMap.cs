@@ -6,14 +6,14 @@ using MigrationTools._EngineV1.Configuration.FieldMap;
 
 namespace MigrationTools.FieldMaps.AzureDevops.ObjectModel
 {
-    public class FieldtoFieldMultiMap : FieldMapBase
+    public class FieldToFieldMultiMap : FieldMapBase
     {
-        public FieldtoFieldMultiMap(ILogger<FieldtoFieldMultiMap> logger) : base(logger)
+        public FieldToFieldMultiMap(ILogger<FieldToFieldMultiMap> logger) : base(logger)
         {
         }
 
         public override string MappingDisplayName => string.Empty;
-        private FieldtoFieldMultiMapConfig Config { get { return (FieldtoFieldMultiMapConfig)_Config; } }
+        private FieldToFieldMultiMapConfig Config { get { return (FieldToFieldMultiMapConfig)_Config; } }
 
         public override void Configure(IFieldMapConfig config)
         {
@@ -25,7 +25,7 @@ namespace MigrationTools.FieldMaps.AzureDevops.ObjectModel
             if (fieldsExist(Config.SourceToTargetMappings, source, target))
                 mapFields(Config.SourceToTargetMappings, source, target);
             else
-                Log.LogDebug("FieldtoFieldMultiMap:  [SKIPPED] Not all source and target fields exist.");
+                Log.LogDebug("FieldToFieldMultiMap:  [SKIPPED] Not all source and target fields exist.");
         }
 
         private bool fieldsExist(Dictionary<string, string> fieldMap, WorkItem source, WorkItem target)
@@ -36,12 +36,12 @@ namespace MigrationTools.FieldMaps.AzureDevops.ObjectModel
                 if (!source.Fields.Contains(map.Key))
                 {
                     exists = false;
-                    Log.LogDebug("FieldtoFieldMultiMap:  Configured Field {Field} does not exist in the source on FieldtoFieldMultiMap", map.Key);
+                    Log.LogDebug("FieldToFieldMultiMap:  Configured Field {Field} does not exist in the source on FieldToFieldMultiMap", map.Key);
                 }
                 if (!target.Fields.Contains(map.Value))
                 {
                     exists = false;
-                    Log.LogDebug("FieldtoFieldMultiMap:  Configured Field {Field} does not exist in the target on FieldtoFieldMultiMap", map.Key);
+                    Log.LogDebug("FieldToFieldMultiMap:  Configured Field {Field} does not exist in the target on FieldToFieldMultiMap", map.Key);
                 }
             }
             return exists;
@@ -52,7 +52,7 @@ namespace MigrationTools.FieldMaps.AzureDevops.ObjectModel
             foreach (var map in fieldMap)
             {
                 target.Fields[map.Value].Value = source.Fields[map.Key].Value;
-                Log.LogDebug("FieldtoFieldMultiMap:  [UPDATE] field mapped {0}:{1} to {2}:{3}", source.Id, map.Key, target.Id, map.Value);
+                Log.LogDebug("FieldToFieldMultiMap:  [UPDATE] field mapped {0}:{1} to {2}:{3}", source.Id, map.Key, target.Id, map.Value);
             }
         }
     }

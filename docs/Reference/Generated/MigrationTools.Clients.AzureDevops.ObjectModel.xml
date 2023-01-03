@@ -4,7 +4,7 @@
         <name>MigrationTools.Clients.AzureDevops.ObjectModel</name>
     </assembly>
     <members>
-        <member name="M:MigrationTools.Enrichers.TfsEmbededImagesEnricher.FixEmbededImages(MigrationTools.DataContracts.WorkItemData,System.String,System.String,System.String)">
+        <member name="M:MigrationTools.Enrichers.TfsEmbeddedImagesEnricher.FixEmbeddedImages(MigrationTools.DataContracts.WorkItemData,System.String,System.String,System.String)">
             from https://gist.github.com/pietergheysens/792ed505f09557e77ddfc1b83531e4fb
         </member>
         <member name="M:MigrationTools.Enrichers.TfsNodeStructure.ShouldCreateNode(System.String)">
@@ -24,7 +24,7 @@
         </member>
         <member name="T:MigrationTools.Processors.TfsAreaAndIterationProcessor">
             <summary>
-            The `TfsAreaAndIterationProcessor` migrates all of the Area nd Iteraion paths.
+            The `TfsAreaAndIterationProcessor` migrates all of the Area and Iteration paths.
             </summary>
         </member>
         <member name="P:MigrationTools.Processors.TfsAreaAndIterationProcessorOptions.PrefixProjectToNodes">
@@ -35,7 +35,7 @@
         </member>
         <member name="T:MigrationTools.Processors.TfsSharedQueryProcessor">
             <summary>
-            The TfsSharedQueryProcessor enabled you to migrate queries from one locatio nto another.
+            The TfsSharedQueryProcessor enabled you to migrate queries from one location to another.
             </summary>
         </member>
         <member name="M:MigrationTools.Processors.TfsSharedQueryProcessor.MigrateFolder(Microsoft.TeamFoundation.WorkItemTracking.Client.QueryHierarchy,Microsoft.TeamFoundation.WorkItemTracking.Client.QueryFolder,Microsoft.TeamFoundation.WorkItemTracking.Client.QueryFolder)">
@@ -67,7 +67,7 @@
         </member>
         <member name="P:MigrationTools.Processors.TfsSharedQueryProcessorOptions.SharedFolderName">
             <summary>
-            The name of the shared folder, made a parameter incase it every needs to be edited
+            The name of the shared folder, made a parameter in case it every needs to be edited
             </summary>
             <default>Shared Queries</default>
         </member>

@@ -48,7 +48,7 @@ namespace MigrationTools
         {
             var workItem = (WorkItem)context.internalObject;
             TfsWorkItemConvertor tfswic = new TfsWorkItemConvertor();
-            tfswic.MapWorkItemtoWorkItemData(context, workItem, fieldsOfRevision);
+            tfswic.MapWorkItemToWorkItemData(context, workItem, fieldsOfRevision);
         }
 
         public static void SaveToAzureDevOps(this WorkItemData context)

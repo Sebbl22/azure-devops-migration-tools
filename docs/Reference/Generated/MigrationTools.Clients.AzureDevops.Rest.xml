@@ -150,7 +150,7 @@
         </member>
         <member name="M:MigrationTools.Processors.AzureDevOpsPipelineProcessor.MigratePipelinesAsync">
             <summary>
-            Executes Method for migrating Taskgroups, Variablegroups or Pipelines, depinding on what
+            Executes Method for migrating Taskgroups, Variablegroups or Pipelines, depending on what
             is set in the config.
             </summary>
         </member>
@@ -217,7 +217,7 @@
         </member>
         <member name="P:MigrationTools.Processors.AzureDevOpsPipelineProcessorOptions.MigrateVariableGroups">
             <summary>
-            Migrate Valiable Groups
+            Migrate Variable Groups
             </summary>
             <default>true</default>
         </member>
@@ -239,7 +239,7 @@
         </member>
         <member name="P:MigrationTools.Processors.AzureDevOpsPipelineProcessorOptions.RepositoryNameMaps">
             <summary>
-            Map of Source Repository to Target Repository Names 
+            Map of Source Repository to Target Repository Names
             </summary>
         </member>
         <member name="T:MigrationTools.Processors.ProcessorModel">

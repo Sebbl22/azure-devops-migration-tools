@@ -10,32 +10,32 @@ namespace MigrationTools.Tests
         private EngineConfigurationBuilder ecb = new EngineConfigurationBuilder(new NullLogger<EngineConfigurationBuilder>());
 
         [TestMethod, TestCategory("L2")]
-        public void TestSeraliseToJson()
+        public void TestSerializeToJson()
         {
             var config = ecb.BuildDefault();
             ecb.WriteSettings(config, "configuration.json");
         }
 
         [TestMethod, TestCategory("L2")]
-        public void TestDeseraliseFromJson()
+        public void TestDeserializeFromJson()
         {
-            TestSeraliseToJson();
+            TestSerializeToJson();
             var ec = ecb.BuildFromFile("configuration.json");
             Assert.AreEqual(10, ec.FieldMaps.Count);
             Assert.AreEqual(12, ec.Processors.Count);
         }
 
         [TestMethod, TestCategory("L2")]
-        public void TestSeraliseToJson2()
+        public void TestSerializeToJson2()
         {
             var config = ecb.BuildDefault();
             ecb.WriteSettings(config, "configuration2.json");
         }
 
         [TestMethod, TestCategory("L2")]
-        public void TestDeseraliseFromJson2()
+        public void TestDeserializeFromJson2()
         {
-            TestSeraliseToJson2();
+            TestSerializeToJson2();
             var ec = ecb.BuildFromFile("configuration2.json");
             Assert.AreEqual(10, ec.FieldMaps.Count);
             Assert.AreEqual(12, ec.Processors.Count);

@@ -8,7 +8,7 @@
         public string sourceField3 { get; set; }
         public string targetField { get; set; }
         public string formatExpression { get; set; }
-        public string doneMatch { get; set; } = "##DONE##"; //Depricated TODO remove
+        public string doneMatch { get; set; } = "##DONE##"; //Deprecated TODO remove
 
         public string FieldMap
         {

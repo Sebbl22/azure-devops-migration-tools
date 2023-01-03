@@ -1,6 +1,6 @@
 ﻿namespace MigrationTools._EngineV1.Configuration.FieldMap
 {
-    public class FieldtoTagMapConfig : IFieldMapConfig
+    public class FieldToTagMapConfig : IFieldMapConfig
     {
         public string WorkItemTypeName { get; set; }
         public string sourceField { get; set; }

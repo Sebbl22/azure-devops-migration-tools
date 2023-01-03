@@ -11,15 +11,15 @@ This processor is intended, with the aid of [ProcessorEnrichers](../ProcessorEnr
 
 | Parameter name         | Type    | Description                              | Default Value                            |
 |------------------------|---------|------------------------------------------|------------------------------------------|
-| Enabled | Boolean | If set to `true` then the processor will run. Set to `false` and the processor will not run. | missng XML code comments |
-| ReplayRevisions | Boolean | missng XML code comments | missng XML code comments |
-| PrefixProjectToNodes | Boolean | missng XML code comments | missng XML code comments |
-| CollapseRevisions | Boolean | missng XML code comments | missng XML code comments |
-| WorkItemCreateRetryLimit | Int32 | missng XML code comments | missng XML code comments |
-| ProcessorEnrichers | List | List of Enrichers that can be used to add more features to this processor. Only works with Native Processors and not legacy Processors. | missng XML code comments |
-| SourceName | String | missng XML code comments | missng XML code comments |
-| TargetName | String | missng XML code comments | missng XML code comments |
-| RefName | String | `Refname` will be used in the future to allow for using named Options without the need to copy all of the options. | missng XML code comments |
+| Enabled | Boolean | If set to `true` then the processor will run. Set to `false` and the processor will not run. | missing XML code comments |
+| ReplayRevisions | Boolean | missing XML code comments | missing XML code comments |
+| PrefixProjectToNodes | Boolean | missing XML code comments | missing XML code comments |
+| CollapseRevisions | Boolean | missing XML code comments | missing XML code comments |
+| WorkItemCreateRetryLimit | Int32 | missing XML code comments | missing XML code comments |
+| ProcessorEnrichers | List | List of Enrichers that can be used to add more features to this processor. Only works with Native Processors and not legacy Processors. | missing XML code comments |
+| SourceName | String | missing XML code comments | missing XML code comments |
+| TargetName | String | missing XML code comments | missing XML code comments |
+| RefName | String | `Refname` will be used in the future to allow for using named Options without the need to copy all of the options. | missing XML code comments |
 
 
 ### Supported Endpoints
@@ -64,7 +64,7 @@ This processor is intended, with the aid of [ProcessorEnrichers](../ProcessorEnr
 }
 ```
 
-#### Full Example with Enpoints & Enrichers
+#### Full Example with Endpoints & Enrichers
 
 
 ```JSON

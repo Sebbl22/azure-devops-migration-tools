@@ -4,11 +4,11 @@
 
 [Overview](.././index.md) > [Reference](../index.md) > [ProcessorEnrichers](./index.md) > **TfsNodeStructureEnricher**
 
-missng XML code comments
+missing XML code comments
 
 ### Options
 
-Options not yet implmeneted
+Options not yet implemented
 
 ### Example JSON
 

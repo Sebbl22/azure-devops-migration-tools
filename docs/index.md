@@ -15,7 +15,7 @@ The Azure DevOps Migration Tools allow you to bulk edit and migrate data between
 
 - Migrate `Work Items`, `TestPlans & Suits`, `Teams`, `Shared Queries`, & `Pipelines` from one `Team Project` to another
 - Migrate `Work Items`, `TestPlans & Suits`, `Teams`, `Shared Queries`, & `Pipelines` from one `Organisation` to another
-- Bulk edit of `Work Items` accross an entire `Project`.
+- Bulk edit of `Work Items` across an entire `Project`.
 
 ### What versions of Azure DevOps & TFS do you support?
 
@@ -68,17 +68,17 @@ There are two ways to get these tools:
 
 ## Support
 
-1. [Question & Discussion](https://github.com/nkdAgility/azure-devops-migration-tools/discussions) - The first place to look for unsage, configuration, and general help. 
-1. [Issues on Gitbub](https://github.com/nkdAgility/azure-devops-migration-tools/issues) - If you have identified a bug and have logs then please raise an issue.
+1. [Question & Discussion](https://github.com/nkdAgility/azure-devops-migration-tools/discussions) - The first place to look for usage, configuration, and general help. 
+1. [Issues on Github](https://github.com/nkdAgility/azure-devops-migration-tools/issues) - If you have identified a bug and have logs then please raise an issue.
 
 ### Professional Support
 
-You can get free support from the community above and on social media on a best effort basis if folks are available. If you are *looking for paid support* [naked Agility with Martin Hinshelwood & Co](https://nkdagility.com) has a number of experts, many of whom contribute to this project, that can help. Find out how [we can help you](https://nkdagility.com/technical-consulting-and-coaching/azure-devops-migration-tools-consulting/) with your migration and [book a free consultation](https://nkdagility.com/technical-consulting-and-coaching/azure-devops-migration-tools-consulting/) to discuss how we can make things easyer.
+You can get free support from the community above and on social media on a best effort basis if folks are available. If you are *looking for paid support* [naked Agility with Martin Hinshelwood & Co](https://nkdagility.com) has a number of experts, many of whom contribute to this project, that can help. Find out how [we can help you](https://nkdagility.com/technical-consulting-and-coaching/azure-devops-migration-tools-consulting/) with your migration and [book a free consultation](https://nkdagility.com/technical-consulting-and-coaching/azure-devops-migration-tools-consulting/) to discuss how we can make things easier.
 
 We use these tools with our customers, and for fun, to do real world migrations on a daily basis and we can:
 
- - Consult with your internal folks who need help and guidance in runnign the tooling.
- - Make changes to the tool to support your needs; all additions are commited to the main repo.
+ - Consult with your internal folks who need help and guidance in running the tooling.
+ - Make changes to the tool to support your needs; all additions are committed to the main repo.
  - Run the migration for you:- you would need to pay for the hours that we would spend baby-sitting the running migrations
 
  ## Details
@@ -118,9 +118,9 @@ Most of these processors need to be run in order. If you try to migrate work ite
 
 ## Processors (v2 Architecture) [ PREVIEW ]
 
-**_These are experimental processors that should replace those above. We are intersted in feedback of the new format of the config, as well as the functionality._**
+**_These are experimental processors that should replace those above. We are interested in feedback of the new format of the config, as well as the functionality._**
 
-The new processor configuration is designed to allow the Migration Tools to support diferent Source and targets than just TFS/Azure DevOps, and we moved the Endpoints to the processor to allow both Object Model & REST in different processors.
+The new processor configuration is designed to allow the Migration Tools to support different Source and targets than just TFS/Azure DevOps, and we moved the Endpoints to the processor to allow both Object Model & REST in different processors.
 
 | Processor                                                                        | Status  | Target         | Usage                                                                                                      |
 | :------------------------------------------------------------------------------- | :------ | :------------- | :--------------------------------------------------------------------------------------------------------- |
@@ -143,13 +143,13 @@ By default, when you are moving from source to target the system will map all of
 
 However sometimes you want to move data to another field, or use a regex to parse out just the bits that you want. To help we have built a number of mapping tools that should give you the versatility you need.
 
-* **FieldtoFieldMap** - Just want to map one field to another? This is the one for you.
-* **FieldtoFieldMultiMap** - Allows you to create a list of one to one field maps.
+* **FieldToFieldMap** - Just want to map one field to another? This is the one for you.
+* **FieldToFieldMultiMap** - Allows you to create a list of one to one field maps.
 * **FieldMergeMap** - Ever wanted to merge two or three fields? This mapping will let you do just that.
 * **FieldBlankMap** - Allows you to set an already populated field to empty
-* **FieldtoTagMap** - Want to take a field and convert its value to a tag? Done...
+* **FieldToTagMap** - Want to take a field and convert its value to a tag? Done...
 * **FieldValueMap** - Need to map not just the field but also values? This is the default value mapper.
-* **FieldValuetoTagMap** - Need to create a Tag based on a field value? Just create a regex match and choose how to populate the target.
+* **FieldValueToTagMap** - Need to create a Tag based on a field value? Just create a regex match and choose how to populate the target.
 * **RegexFieldMap** - I just need that bit of a field... need to send "2016.2" to two fields, one for year and one for release? Done.
 * **TreeToTagMap** - Need to clear out those nasty Area tree hierarchies? This creates Tags for each node in the Area Path...
 
@@ -202,7 +202,7 @@ Check out the [FAQ pages](faq.md)
 
 * **Martin Hinshelwood, naked Agility Ltd** - [@MrHinsh](https://github.com/MrHinsh) is the founder of the Azure DevOps Migration Tools is available worldwide to help organisations plan and enact their migration efforts. You can contact him through [naked Agility Ltd.](https://nkdagility.com).
 * **Wes MacDonald, LIKE 10 INC.** - [@wesmacdonald](https://github.com/wesmacdonald) is a DevOps Consultant located in Toronto, Canada.  You can reach out to him via [LIKE 10 INC.](http://www.like10.com). 
-* **Ove Bastiansen** - [@ovebastiansen](https://github.com/ovebastiansen) is a DevOps consultant living in Oslo, Norway, but working worldwide in todays remote friendly world. You can reach him via his GitHub profile [https://github.com/ovebastiansen](https://github.com/ovebastiansen).
+* **Ove Bastiansen** - [@ovebastiansen](https://github.com/ovebastiansen) is a DevOps consultant living in Oslo, Norway, but working worldwide in today's remote friendly world. You can reach him via his GitHub profile [https://github.com/ovebastiansen](https://github.com/ovebastiansen).
 * **Gordon Beeming** - [@DevStarOps](https://github.com/DevStarOps) is a DevOps Specialist in Durban, South Africa working at [Derivco](https://derivco.com). You can reach him via his [profile page](https://devstarops.com/) that links to all social media.
 
 ## Terms

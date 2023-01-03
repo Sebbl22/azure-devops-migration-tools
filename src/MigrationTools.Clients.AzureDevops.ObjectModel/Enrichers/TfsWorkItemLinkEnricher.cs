@@ -228,7 +228,7 @@ namespace MigrationTools.Enrichers
                     return;
                 }
             }
-            
+
             if (wiTargetR != null)
             {
                 bool IsExisting = false;
@@ -325,7 +325,7 @@ namespace MigrationTools.Enrichers
                     }
                     if (wiTargetR.ToWorkItem().IsAccessDenied)
                     {
-                        Log.LogInformation("  [AccessDenied] The Target  work item is inaccessable to create a Link of type {0} where wiSourceL={1}, wiSourceR={2}, wiTargetL={3}, wiTargetR={4} ", rl.LinkTypeEnd.ImmutableName, wiSourceL.Id, wiSourceR.Id, wiTargetL.Id, wiTargetR.Id);
+                        Log.LogInformation("  [AccessDenied] The Target  work item is inaccessible to create a Link of type {0} where wiSourceL={1}, wiSourceR={2}, wiTargetL={3}, wiTargetR={4} ", rl.LinkTypeEnd.ImmutableName, wiSourceL.Id, wiSourceR.Id, wiTargetL.Id, wiTargetR.Id);
                     }
                 }
             }
@@ -432,7 +432,7 @@ namespace MigrationTools.Enrichers
             return item is Hyperlink;
         }
 
-        [Obsolete("v2 Archtecture: use Configure(bool save = true, bool filter = true) instead", true)]
+        [Obsolete("v2 Architecture: use Configure(bool save = true, bool filter = true) instead", true)]
         public override void Configure(IProcessorEnricherOptions options)
         {
             throw new NotImplementedException();

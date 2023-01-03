@@ -6,7 +6,7 @@
 [Overview](.././index.md) > [Reference](../index.md) > [Processors](../Processors/index.md) > *Processor Enrichers*
 
 Processor Enrichers are run within the context of the ProcessorProcessor that they are 
-configured for. Many Processor Enrichers are flexable, however there are also enrichers that only 
+configured for. Many Processor Enrichers are flexible, however there are also enrichers that only 
 work with certain Processors.
 
 Processor Enricher | Processor(s) | Description
@@ -16,7 +16,7 @@ AppendMigrationToolSignatureFooter | WorkItem | TBA
 FilterWorkItemsThatAlreadyExistInTarget | WorkItem | TBA
 SkipToFinalRevisedWorkItemType | WorkItem | TBA
 
-### Processor Pipline
+### Processor Pipeline
 
   - ProcessorExecutionBegin
   - ProcessorExecutionAfterSource

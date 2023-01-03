@@ -14,7 +14,7 @@ namespace MigrationTools.FieldMaps.AzureDevops.ObjectModel
         }
 
         public override string MappingDisplayName => Config.sourceField;
-        private FieldtoTagMapConfig Config { get { return (FieldtoTagMapConfig)_Config; } }
+        private FieldToTagMapConfig Config { get { return (FieldToTagMapConfig)_Config; } }
 
         public override void Configure(IFieldMapConfig config)
         {
@@ -41,7 +41,7 @@ namespace MigrationTools.FieldMaps.AzureDevops.ObjectModel
                             newTags.Add(string.Format(Config.formatExpression, value));
                         }
                         target.Tags = string.Join(";", newTags.ToArray());
-                        Log.LogDebug("FieldToTagFieldMap: [UPDATE] field tagged {0}:{1} to {2}:Tag with foramt of {3}", source.Id, Config.sourceField, target.Id, Config.formatExpression);
+                        Log.LogDebug("FieldToTagFieldMap: [UPDATE] field tagged {0}:{1} to {2}:Tag with format of {3}", source.Id, Config.sourceField, target.Id, Config.formatExpression);
                     }
                 }
             }

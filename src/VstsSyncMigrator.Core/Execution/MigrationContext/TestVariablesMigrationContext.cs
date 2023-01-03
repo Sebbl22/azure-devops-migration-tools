@@ -46,7 +46,7 @@ namespace VstsSyncMigrator.Engine
             TestManagementContext SourceTmc = new TestManagementContext(Engine.Source);
             TestManagementContext targetTmc = new TestManagementContext(Engine.Target);
             List<ITestVariable> sourceVars = SourceTmc.Project.TestVariables.Query().ToList();
-            Log.LogInformation("Plan to copy {0} Veriables?", sourceVars.Count);
+            Log.LogInformation("Plan to copy {0} variables?", sourceVars.Count);
 
             foreach (var sourceVar in sourceVars)
             {

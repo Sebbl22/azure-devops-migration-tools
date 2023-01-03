@@ -15,7 +15,7 @@ namespace MigrationTools.Clients.AzureDevops.Rest.Enrichers
             _maxAttachmentSize = maxAttachmentSize;
         }
 
-        public void ProcessAttachemnts(WorkItemData source, WorkItemData target, bool save = true)
+        public void ProcessAttachments(WorkItemData source, WorkItemData target, bool save = true)
         {
             throw new NotImplementedException();
         }

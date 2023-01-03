@@ -5,9 +5,9 @@ using MigrationTools._EngineV1.Configuration.FieldMap;
 
 namespace MigrationTools.Clients.AzureDevops.Rest.FieldMaps
 {
-    public class FieldValuetoTagMap : FieldMapBase
+    public class FieldValueToTagMap : FieldMapBase
     {
-        private FieldValuetoTagMapConfig Config { get { return (FieldValuetoTagMapConfig)_Config; } }
+        private FieldValueToTagMapConfig Config { get { return (FieldValueToTagMapConfig)_Config; } }
 
         public override void Configure(IFieldMapConfig config)
         {

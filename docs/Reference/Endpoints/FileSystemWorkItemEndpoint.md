@@ -4,15 +4,15 @@
 
 [Overview](.././index.md) > [Reference](../index.md) > [Endpoints](./index.md) > **FileSystemWorkItemEndpoint**
 
-missng XML code comments
+missing XML code comments
 
 ### Options
 
 | Parameter name         | Type    | Description                              | Default Value                            |
 |------------------------|---------|------------------------------------------|------------------------------------------|
-| FileStore | String | missng XML code comments | missng XML code comments |
-| EndpointEnrichers | List | missng XML code comments | missng XML code comments |
-| RefName | String | missng XML code comments | missng XML code comments |
+| FileStore | String | missing XML code comments | missing XML code comments |
+| EndpointEnrichers | List | missing XML code comments | missing XML code comments |
+| RefName | String | missing XML code comments | missing XML code comments |
 
 
 ### Example JSON

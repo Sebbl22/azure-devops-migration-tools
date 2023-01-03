@@ -15,7 +15,7 @@
         </member>
         <member name="M:MigrationTools.DataContracts.Pipelines.Process.ShouldSerializePhases">
             <summary>
-            If the type is 1 then this is a classis pipeline, so the phases should be serialized.
+            If the type is 1 then this is a class pipeline, so the phases should be serialized.
             </summary>
             <returns>bool on if the Phases should be serialized.</returns>
         </member>
@@ -47,7 +47,7 @@
         </member>
         <member name="P:MigrationTools.Options.IOptions.RefName">
             <summary>
-            If you set a `RefName` then this configration will be added to a Catalog of configurations that can be refernced using tha `RefName` so tha tyou dont have to keep adding the ame items with the same configuration.
+            If you set a `RefName` then this configuration will be added to a Catalog of configurations that can be referenced using tha `RefName` so that you dont have to keep adding the ame items with the same configuration.
             </summary>
         </member>
         <member name="P:MigrationTools.Processors.IProcessorOptions.SourceName">
@@ -211,7 +211,7 @@
         </member>
         <member name="P:MigrationTools._EngineV1.Configuration.Processing.WorkItemQueryMigrationConfig.SharedFolderName">
             <summary>
-                The name of the shared folder, made a parameter incase it every needs to be edited
+                The name of the shared folder, made a parameter in case it every needs to be edited
             </summary>
         </member>
         <member name="P:MigrationTools._EngineV1.Configuration.Processing.WorkItemQueryMigrationConfig.Enabled">
@@ -235,10 +235,10 @@
         <member name="M:MigrationTools._EngineV1.Configuration.Processing.WorkItemUpdateConfig.IsProcessorCompatible(System.Collections.Generic.IReadOnlyList{MigrationTools._EngineV1.Configuration.IProcessorConfig})">
             <inheritdoc />
         </member>
-        <member name="M:MigrationTools._EngineV1.Enrichers.EmbededImagesRepairEnricherBase.#ctor(System.IServiceProvider,Microsoft.Extensions.Logging.ILogger{MigrationTools._EngineV1.Enrichers.EmbededImagesRepairEnricherBase})">
+        <member name="M:MigrationTools._EngineV1.Enrichers.EmbeddedImagesRepairEnricherBase.#ctor(System.IServiceProvider,Microsoft.Extensions.Logging.ILogger{MigrationTools._EngineV1.Enrichers.EmbeddedImagesRepairEnricherBase})">
             from https://gist.github.com/pietergheysens/792ed505f09557e77ddfc1b83531e4fb
         </member>
-        <member name="M:MigrationTools._EngineV1.Enrichers.EmbededImagesRepairEnricherBase.GetImageFormat(System.Byte[])">
+        <member name="M:MigrationTools._EngineV1.Enrichers.EmbeddedImagesRepairEnricherBase.GetImageFormat(System.Byte[])">
             <summary>
             Retrieve Image Format for a given byte array
             </summary>

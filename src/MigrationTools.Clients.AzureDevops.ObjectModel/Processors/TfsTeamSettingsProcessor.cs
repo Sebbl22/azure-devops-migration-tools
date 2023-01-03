@@ -294,8 +294,8 @@ namespace MigrationTools.Processors
                                 sourceDisplayName = sourceDisplayName.Substring(0, index).Trim();
                             }
 
-                            var targetTeamFoundatationIdentity = _targetTeamFoundationIdentitiesLazyCache.Value.FirstOrDefault(i => i.DisplayName == sourceDisplayName);
-                            if (targetTeamFoundatationIdentity != null)
+                            var targetTeamFoundationIdentity = _targetTeamFoundationIdentitiesLazyCache.Value.FirstOrDefault(i => i.DisplayName == sourceDisplayName);
+                            if (targetTeamFoundationIdentity != null)
                             {
                                 targetCapacities.Add(new TeamMemberCapacityIdentityRef
                                 {
@@ -303,7 +303,7 @@ namespace MigrationTools.Processors
                                     DaysOff = sourceCapacity.DaysOff,
                                     TeamMember = new IdentityRef
                                     {
-                                        Id = targetTeamFoundatationIdentity.TeamFoundationId.ToString()
+                                        Id = targetTeamFoundationIdentity.TeamFoundationId.ToString()
                                     }
                                 });
                             }

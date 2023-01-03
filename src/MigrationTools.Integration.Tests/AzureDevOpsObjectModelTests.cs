@@ -27,7 +27,7 @@ namespace MigrationTools.Integration.Tests
         [TestMethod(), TestCategory("L3"), TestCategory("Integration")]
         public void TestTfsToTfsNoEnrichers()
         {
-            // Senario 1 Migration from Tfs to Tfs with no Enrichers.
+            // Scenario 1 Migration from Tfs to Tfs with no Enrichers.
             var migrationConfig = GetConfigurationTfsToTfsNoEnrichers();
             var workItemMigrationProcessor = Services.GetRequiredService<WorkItemTrackingProcessor>();
             workItemMigrationProcessor.Configure(migrationConfig);

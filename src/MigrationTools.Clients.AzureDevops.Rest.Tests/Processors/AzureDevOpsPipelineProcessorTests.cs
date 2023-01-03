@@ -49,7 +49,7 @@ namespace MigrationTools.Processors.Tests
         [TestMethod(), TestCategory("L3"), TestCategory("AzureDevOps.REST")]
         public void AzureDevOpsPipelineProcessorNoEnrichersTest()
         {
-            // Senario 1 Migration from Tfs to Tfs with no Enrichers.
+            // Scenario 1 Migration from Tfs to Tfs with no Enrichers.
             var migrationConfig = GetAzureDevOpsPipelineProcessorOptions();
             var processor = Services.GetRequiredService<AzureDevOpsPipelineProcessor>();
             processor.Configure(migrationConfig);
@@ -57,7 +57,7 @@ namespace MigrationTools.Processors.Tests
             Assert.AreEqual(ProcessingStatus.Complete, processor.Status);
         }
 
-        [TestMethod, TestCategory("L3"), TestCategory("AzureDevOps.REST")]        
+        [TestMethod, TestCategory("L3"), TestCategory("AzureDevOps.REST")]
         public void AzureDevOpsPipelineProcessorSelectedBuildDefinitionsTest()
         {
             var config = new AzureDevOpsPipelineProcessorOptions
@@ -118,7 +118,7 @@ namespace MigrationTools.Processors.Tests
                     GetValueFromProperty(le.Properties["DefinitionList"]).ToString() == "Test1;New release pipeline;Test3";
 
             Assert.AreEqual(1, InMemorySink.Instance.LogEvents.Count(migrationMessageFilter));
-            Assert.AreEqual(2, InMemorySink.Instance.LogEvents.Count(configuredMessageFilter));         
+            Assert.AreEqual(2, InMemorySink.Instance.LogEvents.Count(configuredMessageFilter));
         }
     }
 }

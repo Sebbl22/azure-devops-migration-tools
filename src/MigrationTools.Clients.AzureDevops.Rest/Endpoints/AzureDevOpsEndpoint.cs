@@ -130,7 +130,7 @@ namespace MigrationTools.Endpoints
             string unformatted = (apiPathAttribute.IncludeProject ? "/" + Options.Project : "") + "/_apis/" + pathSplit[0] + (apiPathAttribute.IncludeTrailingSlash ? "/" : "");
             builder.Path += Regex.IsMatch(unformatted, @"{\d}") ? string.Format(unformatted, routeParameters) : unformatted;
 
-            if (apiNameAttribute.Name == "Release Piplines")
+            if (apiNameAttribute.Name == "Release Pipelines")
             {
                 if (builder.Host.Contains("dev.azure.com"))
                 {
@@ -191,7 +191,7 @@ namespace MigrationTools.Endpoints
                     var client2 = GetHttpClient<DefinitionType>(routeParameters);
                     foreach (RestApiDefinition definition in definitions.Value)
                     {
-                        // Nessecary because getting all Pipelines doesn't include all of their properties
+                        // Necessary because getting all Pipelines doesn't include all of their properties
                         var response = await client2.GetAsync(client2.BaseAddress + "/" + definition.Id + "?" + singleDefinitionQueryString);
                         if (response.StatusCode == HttpStatusCode.OK)
                         {

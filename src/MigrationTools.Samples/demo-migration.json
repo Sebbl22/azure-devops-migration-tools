@@ -36,16 +36,16 @@
             "Enabled": false
         },
         {
-            "ObjectType": "AttachementExportMigrationConfig",
+            "ObjectType": "AttachmentExportMigrationConfig",
             "Enabled": false,
             "QueryBit": "AND [System.AttachedFileCount] > 0"
         },
         {
-            "ObjectType": "AttachementImportMigrationConfig",
+            "ObjectType": "AttachmentImportMigrationConfig",
             "Enabled": false
         },
         {
-            "ObjectType": "TestVeriablesMigrationConfig",
+            "ObjectType": "TestVariablesMigrationConfig",
             "Enabled": false
         },
         {

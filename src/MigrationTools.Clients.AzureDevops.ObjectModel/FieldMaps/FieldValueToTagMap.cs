@@ -8,14 +8,14 @@ using MigrationTools._EngineV1.Configuration.FieldMap;
 
 namespace MigrationTools.FieldMaps.AzureDevops.ObjectModel
 {
-    public class FieldValuetoTagMap : FieldMapBase
+    public class FieldValueToTagMap : FieldMapBase
     {
-        public FieldValuetoTagMap(ILogger<FieldValuetoTagMap> logger) : base(logger)
+        public FieldValueToTagMap(ILogger<FieldValueToTagMap> logger) : base(logger)
         {
         }
 
         public override string MappingDisplayName => $"{Config.sourceField}";
-        private FieldValuetoTagMapConfig Config { get { return (FieldValuetoTagMapConfig)_Config; } }
+        private FieldValueToTagMapConfig Config { get { return (FieldValueToTagMapConfig)_Config; } }
 
         public override void Configure(IFieldMapConfig config)
         {
@@ -61,7 +61,7 @@ namespace MigrationTools.FieldMaps.AzureDevops.ObjectModel
                     if (newTags != target.Tags)
                     {
                         target.Tags = newTags;
-                        Log.LogDebug("FieldValuetoTagMap: [UPDATE] field tagged {0}:{1} to {2}:Tag with format of {3}", source.Id, Config.sourceField, target.Id, Config.formatExpression);
+                        Log.LogDebug("FieldValueToTagMap: [UPDATE] field tagged {0}:{1} to {2}:Tag with format of {3}", source.Id, Config.sourceField, target.Id, Config.formatExpression);
                     }
                 }
             }

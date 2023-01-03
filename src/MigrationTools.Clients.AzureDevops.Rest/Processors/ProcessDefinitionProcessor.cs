@@ -138,7 +138,7 @@ namespace MigrationTools.Processors
                 Log.LogInformation("Source and target data models established.");
 
                 Log.LogInformation("Synchronizing organization level fields.");
-                // We've got all the target and sources data.. let's start syncronizing
+                // We've got all the target and sources data.. let's start synchronizing
                 await SourceFields.Values.ParallelForEachAsync(Math.Max(1, _Options.MaxDegreeOfParallelism), async (sourceField) =>
                 {
                     if (sourceField.ReferenceName.StartsWith("System.") || sourceField.ReferenceName.StartsWith("Microsoft."))
@@ -221,7 +221,7 @@ namespace MigrationTools.Processors
             foreach (var field in sourceWit.Fields)
             {
                 var existingField = TargetModel.WorkItemFields.Values.FirstOrDefault(x => x.ReferenceName == field.ReferenceName);
-                //if (existingField == null || (existingField != null && field.Customization != "system")) // I don't think you can modify 
+                //if (existingField == null || (existingField != null && field.Customization != "system")) // I don't think you can modify
                 //{
                     await SyncDefinitionType<WorkItemTypeField>(
                         TargetModel.WorkItemFields,
@@ -326,7 +326,7 @@ namespace MigrationTools.Processors
                                     }
                                     else
                                     {
-                                        
+
                                         // Its on a different page .. lets move pages
                                         var tempTargetGroup = existingGroup.Value.CloneAsNew();
                                         tempTargetGroup.Id = existingGroup.Value.Id;
@@ -452,7 +452,7 @@ namespace MigrationTools.Processors
             Log.LogInformation($"Completed sync of work item type [{Source.Options.Name}::{sourceWit.WorkItemType.Name}] in [{Target.Options.Name}::{targetWit.WorkItemType.Name}].");
         }
 
-        
+
 
         private async Task<DefinitionType> SyncDefinitionType<DefinitionType>(Dictionary<string, DefinitionType> DataDictionary, DefinitionType sourceDef, DefinitionType targetDef, params string[] routeParams)
             where DefinitionType : RestApiDefinition, ISynchronizeable<DefinitionType>, new()
@@ -474,7 +474,7 @@ namespace MigrationTools.Processors
         private async Task BuildModel(ProcessorModel model, AzureDevOpsEndpoint endpoint, bool warnOnMissing)
         {
             // Grab all the procs, then iterate over them looking for procs user has configured to be
-            // sync'd. Then grab all Work Item Types for the given process and filter those by the ones user 
+            // sync'd. Then grab all Work Item Types for the given process and filter those by the ones user
             // wants to sync.
 
             Log.LogDebug($"Loading model for [{endpoint.Options.Name}].");

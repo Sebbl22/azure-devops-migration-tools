@@ -6,7 +6,7 @@ using MigrationTools.Enrichers;
 namespace MigrationTools.Processors
 {
     /// <summary>
-    /// The `TfsAreaAndIterationProcessor` migrates all of the Area nd Iteraion paths.
+    /// The `TfsAreaAndIterationProcessor` migrates all of the Area and Iteration paths.
     /// </summary>
     public class TfsAreaAndIterationProcessor : Processor
     {
@@ -37,7 +37,7 @@ namespace MigrationTools.Processors
             Log.LogInformation("Processor::InternalExecute::Start");
             EnsureConfigured();
             ProcessorEnrichers.ProcessorExecutionBegin(this);
-            var nodeStructurOptions = new TfsNodeStructureOptions()
+            var nodeStructureOptions = new TfsNodeStructureOptions()
                                         {
                                             Enabled = true,
                                             NodeBasePaths = _options.NodeBasePaths,
@@ -45,7 +45,7 @@ namespace MigrationTools.Processors
                                             AreaMaps = _options.AreaMaps,
                                             IterationMaps = _options.IterationMaps,
                                         };
-            _nodeStructureEnricher.Configure(nodeStructurOptions);
+            _nodeStructureEnricher.Configure(nodeStructureOptions);
             _nodeStructureEnricher.ProcessorExecutionBegin(null);
             ProcessorEnrichers.ProcessorExecutionEnd(this);
             Log.LogInformation("Processor::InternalExecute::End");

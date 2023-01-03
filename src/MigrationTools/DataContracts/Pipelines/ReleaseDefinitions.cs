@@ -7,7 +7,7 @@ using Newtonsoft.Json;
 namespace MigrationTools.DataContracts.Pipelines
 {
     [ApiPath("release/definitions")]
-    [ApiName("Release Piplines")]
+    [ApiName("Release Pipelines")]
     public partial class ReleaseDefinition : RestApiDefinition
     {
         public string Source { get; set; }

@@ -56,7 +56,7 @@ namespace MigrationTools._EngineV1.Clients
 
         public VssCredentials Credentials => _vssCredentials ??= new VssCredentials();
 
-        // if you add Migration Engine in here you will have to fix the infinate loop
+        // if you add Migration Engine in here you will have to fix the infinite loop
         public TfsMigrationClient(ITestPlanMigrationClient testPlanClient, IWorkItemMigrationClient workItemClient, IServiceProvider services, ITelemetryLogger telemetry)
         {
             _testPlanClient = testPlanClient;
@@ -131,7 +131,7 @@ namespace MigrationTools._EngineV1.Clients
                         Log.Information("TfsMigrationClient::GetDependantTfsCollection: Connecting with NetworkCredential passes on CommandLine ");
                         if (credentials is null)
                         {
-                            throw new InvalidOperationException("If AuthenticationMode = Windows then you must pass credentails on the command line.");
+                            throw new InvalidOperationException("If AuthenticationMode = Windows then you must pass credentials on the command line.");
                         }
                         _vssCredentials = new VssCredentials(new Microsoft.VisualStudio.Services.Common.WindowsCredential(credentials));
                         y = new TfsTeamProjectCollection(TfsConfig.Collection, _vssCredentials);

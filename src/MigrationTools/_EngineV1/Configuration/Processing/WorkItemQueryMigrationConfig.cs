@@ -15,7 +15,7 @@ namespace MigrationTools._EngineV1.Configuration.Processing
         public bool PrefixProjectToNodes { get; set; }
 
         /// <summary>
-        ///     The name of the shared folder, made a parameter incase it every needs to be edited
+        ///     The name of the shared folder, made a parameter in case it every needs to be edited
         /// </summary>
         public string SharedFolderName
         {

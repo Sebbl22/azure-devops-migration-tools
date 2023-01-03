@@ -32,7 +32,7 @@ namespace MigrationTools
             context.AddTransient<PauseAfterEachItem>();
         }
 
-        [Obsolete("This is the v1 Archtiecture, we are movign to V2", false)]
+        [Obsolete("This is the v1 Architecture, we are moving to V2", false)]
         public static void AddMigrationToolServicesLegacy(this IServiceCollection context)
         {
             // Services

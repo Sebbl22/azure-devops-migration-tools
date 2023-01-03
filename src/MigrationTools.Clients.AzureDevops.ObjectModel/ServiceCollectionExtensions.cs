@@ -28,8 +28,8 @@ namespace MigrationTools
             // Enrichers
             context.AddSingleton<TfsValidateRequiredField>();
             context.AddSingleton<TfsWorkItemLinkEnricher>();
-            context.AddSingleton<TfsWorkItemEmbededLinkEnricher>();
-            context.AddSingleton<TfsEmbededImagesEnricher>();
+            context.AddSingleton<TfsWorkItemEmbeddedLinkEnricher>();
+            context.AddSingleton<TfsEmbeddedImagesEnricher>();
             context.AddSingleton<TfsGitRepositoryEnricher>();
             context.AddSingleton<TfsNodeStructure>();
             context.AddSingleton<TfsRevisionManager>();
@@ -37,23 +37,23 @@ namespace MigrationTools
             context.AddTransient<TfsWorkItemAttachmentEnricher>();
         }
 
-        [Obsolete("This is the v1 Archtiecture, we are movign to V2", false)]
+        [Obsolete("This is the v1 Architecture, we are moving to V2", false)]
         public static void AddMigrationToolServicesForClientLegacyAzureDevOpsObjectModel(this IServiceCollection context)
         {
-            // Field Mapps
+            // Field Maps
             context.AddTransient<FieldBlankMap>();
             context.AddTransient<FieldLiteralMap>();
             context.AddTransient<FieldMergeMap>();
             context.AddTransient<FieldToFieldMap>();
-            context.AddTransient<FieldtoFieldMultiMap>();
+            context.AddTransient<FieldToFieldMultiMap>();
             context.AddTransient<FieldToTagFieldMap>();
-            context.AddTransient<FieldValuetoTagMap>();
+            context.AddTransient<FieldValueToTagMap>();
             context.AddTransient<FieldToFieldMap>();
             context.AddTransient<FieldValueMap>();
             context.AddTransient<MultiValueConditionalMap>();
             context.AddTransient<RegexFieldMap>();
             context.AddTransient<TreeToTagFieldMap>();
-            
+
             // Core
             context.AddTransient<IMigrationClient, TfsMigrationClient>();
             context.AddTransient<IWorkItemMigrationClient, TfsWorkItemMigrationClient>();

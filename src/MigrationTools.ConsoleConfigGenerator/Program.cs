@@ -103,7 +103,7 @@ namespace VstsSyncMigrator.ConsoleApp
             }
             else
             {
-                query = "missng XML code comments";
+                query = "missing XML code comments";
                 // Console.WriteLine($"- Description FAILED: {item.FullName}");
             }
             return query.Replace(Environment.NewLine, "").Trim();
@@ -123,7 +123,7 @@ namespace VstsSyncMigrator.ConsoleApp
             else
             {
                 // Console.WriteLine($"- Description FAILED: {item.FullName}");
-                query = "missng XML code comments";
+                query = "missing XML code comments";
             }
             return query.Replace(Environment.NewLine, "").Trim();
         }
@@ -148,7 +148,7 @@ namespace VstsSyncMigrator.ConsoleApp
             else
             {
                 // Console.WriteLine($"- Description FAILED: {item.FullName}");
-                defaultvalue = "missng XML code comments";
+                defaultvalue = "missing XML code comments";
             }
 
             return defaultvalue.Replace(Environment.NewLine, "").Trim();
@@ -176,7 +176,7 @@ namespace VstsSyncMigrator.ConsoleApp
             }
             else
             {
-                templatemd = templatemd.Replace("<Options>", "Options not yet implmeneted");
+                templatemd = templatemd.Replace("<Options>", "Options not yet implemented");
             }
             return templatemd;
         }

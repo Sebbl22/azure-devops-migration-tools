@@ -57,7 +57,7 @@
     {
       "href": "https://dev.azure.com/nkdagility/migration-tools/_build/index?path=%5C&definitionId=94",
       "uri": "https://dev.azure.com/nkdagility/migration-tools/_apis/build/status/vsts-sync-migration",
-      "description": "Azure Pipline CI for this project"
+      "description": "Azure Pipeline CI for this project"
     },
     {
       "href": "https://dev.azure.com/nkdagility/migration-tools/_releases2?definitionId=6",

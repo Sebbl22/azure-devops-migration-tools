@@ -49,7 +49,7 @@ namespace MigrationTools.Processors.Tests
         [TestMethod(), TestCategory("L3"), TestCategory("AzureDevOps.ObjectModel")]
         public void TfsSharedQueryProcessorNoEnrichersTest()
         {
-            // Senario 1 Migration from Tfs to Tfs with no Enrichers.
+            // Scenario 1 Migration from Tfs to Tfs with no Enrichers.
             var migrationConfig = GetTfsSharedQueryProcessorOptions();
             var processor = Services.GetRequiredService<TfsSharedQueryProcessor>();
             processor.Configure(migrationConfig);

@@ -5,7 +5,7 @@
 
 [Overview](.././index.md) > [Reference](../index.md) > [Endpoints](../Endpoints/index.md) > *Endpoint Enrichers*
 
-Endpoint Enrichers are run within the context of the Endpoint that they are configured for. Many enpoints are flexable, however there are allso enrichers that only work with certain Endpoints.
+Endpoint Enrichers are run within the context of the Endpoint that they are configured for. Many endpoints are flexible, however there are also enrichers that only work with certain Endpoints.
 
 Endpoint Enricher | Data Target | Description
 ----------|-----------|------------

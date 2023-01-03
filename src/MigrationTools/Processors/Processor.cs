@@ -99,7 +99,7 @@ namespace MigrationTools.Processors
                 if (!_ProcessorConfigured)
                 {
                     Log.LogError("Processor::Execute: Processer base has not been configured.");
-                    throw new InvalidOperationException("Processer base has not been configured.");
+                    throw new InvalidOperationException("Processor base has not been configured.");
                 }
                 Status = ProcessingStatus.Running;
                 InternalExecute();

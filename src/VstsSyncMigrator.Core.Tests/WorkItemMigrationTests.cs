@@ -49,7 +49,7 @@ namespace VstsSyncMigrator.Core.Tests
                                                       nodeStructure,
                                                       _services.GetRequiredService<TfsRevisionManager>(),
                                                       _services.GetRequiredService<TfsWorkItemLinkEnricher>(),
-                                                      _services.GetRequiredService<TfsWorkItemEmbededLinkEnricher>(),
+                                                      _services.GetRequiredService<TfsWorkItemEmbeddedLinkEnricher>(),
                                                       _services.GetRequiredService<TfsValidateRequiredField>(),
                                                       _services.GetRequiredService<IOptions<EngineConfiguration>>());
             _underTest.Configure(new WorkItemMigrationConfig
@@ -197,7 +197,7 @@ namespace VstsSyncMigrator.Core.Tests
         }
 
         [TestMethod]
-        public void TestFixAreaPathAndIteration_WhenMultipleOccuranceInQuery_ChangesQuery()
+        public void TestFixAreaPathAndIteration_WhenMultipleOccurenceInQuery_ChangesQuery()
         {
             string WIQLQueryBit = @"AND ([System.AreaPath] = 'SourceServer\Area\Path1' OR [System.AreaPath] = 'SourceServer\Area\Path2') AND ([System.IterationPath] = 'SourceServer\Iteration\Path1' OR [System.IterationPath] = 'SourceServer\Iteration\Path2') AND [Microsoft.VSTS.Common.ClosedDate] = '' AND [System.WorkItemType] NOT IN ('Test Suite', 'Test Plan')";
             string expectTargetQueryBit = @"AND ([System.AreaPath] = 'TargetServer\Area\Path1' OR [System.AreaPath] = 'TargetServer\Area\Path2') AND ([System.IterationPath] = 'TargetServer\Iteration\Path1' OR [System.IterationPath] = 'TargetServer\Iteration\Path2') AND [Microsoft.VSTS.Common.ClosedDate] = '' AND [System.WorkItemType] NOT IN ('Test Suite', 'Test Plan')";
@@ -208,7 +208,7 @@ namespace VstsSyncMigrator.Core.Tests
         }
 
         [TestMethod]
-        public void TestFixAreaPathAndIteration_WhenMultipleOccuranceWithMixtureOrEqualAndUnderOperatorsInQuery_ChangesQuery()
+        public void TestFixAreaPathAndIteration_WhenMultipleOccurenceWithMixtureOrEqualAndUnderOperatorsInQuery_ChangesQuery()
         {
             string WIQLQueryBit = @"AND ([System.AreaPath] = 'SourceServer\Area\Path1' OR [System.AreaPath] UNDER 'SourceServer\Area\Path2') AND ([System.IterationPath] UNDER 'SourceServer\Iteration\Path1' OR [System.IterationPath] = 'SourceServer\Iteration\Path2') AND [Microsoft.VSTS.Common.ClosedDate] = '' AND [System.WorkItemType] NOT IN ('Test Suite', 'Test Plan')";
             string expectTargetQueryBit = @"AND ([System.AreaPath] = 'TargetServer\Area\Path1' OR [System.AreaPath] UNDER 'TargetServer\Area\Path2') AND ([System.IterationPath] UNDER 'TargetServer\Iteration\Path1' OR [System.IterationPath] = 'TargetServer\Iteration\Path2') AND [Microsoft.VSTS.Common.ClosedDate] = '' AND [System.WorkItemType] NOT IN ('Test Suite', 'Test Plan')";

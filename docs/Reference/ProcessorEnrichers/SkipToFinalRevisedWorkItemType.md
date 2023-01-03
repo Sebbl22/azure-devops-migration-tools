@@ -4,14 +4,14 @@
 
 [Overview](.././index.md) > [Reference](../index.md) > [ProcessorEnrichers](./index.md) > **SkipToFinalRevisedWorkItemType**
 
-missng XML code comments
+missing XML code comments
 
 ### Options
 
 | Parameter name         | Type    | Description                              | Default Value                            |
 |------------------------|---------|------------------------------------------|------------------------------------------|
-| Enabled | Boolean | missng XML code comments | missng XML code comments |
-| RefName | String | missng XML code comments | missng XML code comments |
+| Enabled | Boolean | missing XML code comments | missing XML code comments |
+| RefName | String | missing XML code comments | missing XML code comments |
 
 
 ### Example JSON

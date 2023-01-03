@@ -40,7 +40,7 @@ namespace MigrationTools.FieldMaps.AzureDevops.ObjectModel
                     var transformedData = Regex.Replace(inputData, Config.pattern, Config.replacement);
                     targetWi.Fields[Config.targetField].Value = transformedData;
                     target.Fields[Config.targetField].Value = transformedData;
-                    Log.LogDebug("FieldValuetoTagMap: [UPDATE] field tagged {0}:{1} to {2}:{3} with regex pattern of {4} resulting in {5}", source.Id, Config.sourceField, target.Id, Config.targetField, Config.pattern, target.Fields[Config.targetField].Value);
+                    Log.LogDebug("FieldValueToTagMap: [UPDATE] field tagged {0}:{1} to {2}:{3} with regex pattern of {4} resulting in {5}", source.Id, Config.sourceField, target.Id, Config.targetField, Config.pattern, target.Fields[Config.targetField].Value);
                 }
             }
         }

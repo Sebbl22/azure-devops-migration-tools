@@ -15,7 +15,7 @@ namespace MigrationTools.Configuration.Tests
         {
             var animal = new LandAnimal { Name = "Martin", AnimalType = "Monkey", Tropical = true };
             var waterAnimal = new WaterAnimal { Name = "Ove", AnimalType = "Fish", FreshWater = false };
-            var cage = new Cage { Adress = "Scottland", Animals = new List<Animal> { animal, waterAnimal } };
+            var cage = new Cage { Address = "Scotland", Animals = new List<Animal> { animal, waterAnimal } };
             var zoo = new Zoo { Name = "Migration", Cages = new List<Cage> { cage } };
             return zoo;
         }
@@ -68,7 +68,7 @@ namespace MigrationTools.Configuration.Tests
 
     public class Cage : ISuperOptions
     {
-        public string Adress { get; set; }
+        public string Address { get; set; }
         public List<Animal> Animals { get; set; }
 
         public string Name { get; set; }

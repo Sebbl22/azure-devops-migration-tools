@@ -9,7 +9,7 @@ using MigrationTools.Enrichers;
 namespace MigrationTools.Processors
 {
     /// <summary>
-    /// The TfsSharedQueryProcessor enabled you to migrate queries from one locatio nto another.
+    /// The TfsSharedQueryProcessor enabled you to migrate queries from one location to another.
     /// </summary>
     public class TfsSharedQueryProcessor : Processor
     {
@@ -99,7 +99,7 @@ namespace MigrationTools.Processors
                         Log.LogInformation("Adding a folder '{Project}'", Source.Project);
                         extraFolder = new QueryFolder(Source.Project);
                         targetSharedFolderRoot.Add(extraFolder);
-                        targetHierarchy.Save(); // moved the save here a more immediate and relavent error message
+                        targetHierarchy.Save(); // moved the save here a more immediate and relevant error message
                     }
 
                     // adjust the working folder to the newly added one
@@ -118,7 +118,7 @@ namespace MigrationTools.Processors
                 Log.LogInformation("Migrating a folder '{sourceFolderName}'", sourceFolder.Name);
                 targetFolder = new QueryFolder(sourceFolder.Name);
                 parentFolder.Add(targetFolder);
-                targetHierarchy.Save(); // moved the save here a more immediate and relavent error message
+                targetHierarchy.Save(); // moved the save here a more immediate and relevant error message
             }
 
             // Process child items
@@ -150,7 +150,7 @@ namespace MigrationTools.Processors
                 Log.LogWarning("Skipping query '{queryName}' as already exists", query.Name);
                 return;
             }
-            // Sort out any path issues in the quertText
+            // Sort out any path issues in the queryText
             var fixedQueryText = query.QueryText.Replace($"'{Source.Project}", $"'{Target.Project}"); // the ' should only items at the start of areapath etc.
 
             if (_options.PrefixProjectToNodes)

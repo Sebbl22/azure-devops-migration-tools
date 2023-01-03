@@ -34,7 +34,7 @@
 <ExampleJson>
 ```
 
-#### Full Example with Enpoints & Enrichers
+#### Full Example with Endpoints & Enrichers
 
 
 ```JSON

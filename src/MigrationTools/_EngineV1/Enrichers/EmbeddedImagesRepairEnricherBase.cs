@@ -10,7 +10,7 @@ using MigrationTools.Enrichers;
 
 namespace MigrationTools._EngineV1.Enrichers
 {
-    public abstract class EmbededImagesRepairEnricherBase : WorkItemProcessorEnricher
+    public abstract class EmbeddedImagesRepairEnricherBase : WorkItemProcessorEnricher
     {
         protected readonly HttpClientHandler _httpClientHandler;
         protected bool _ignore404Errors = true;
@@ -18,7 +18,7 @@ namespace MigrationTools._EngineV1.Enrichers
       *  from https://gist.github.com/pietergheysens/792ed505f09557e77ddfc1b83531e4fb
       */
 
-        public EmbededImagesRepairEnricherBase(IServiceProvider services, ILogger<EmbededImagesRepairEnricherBase> logger) : base(services, logger)
+        public EmbeddedImagesRepairEnricherBase(IServiceProvider services, ILogger<EmbeddedImagesRepairEnricherBase> logger) : base(services, logger)
         {
             _httpClientHandler = new HttpClientHandler { AllowAutoRedirect = false, UseDefaultCredentials = true, AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate };
         }
@@ -29,7 +29,7 @@ namespace MigrationTools._EngineV1.Enrichers
         [Obsolete]
         public override abstract int Enrich(WorkItemData sourceWorkItem, WorkItemData targetWorkItem);
 
-        protected abstract void FixEmbededImages(WorkItemData wi, string oldTfsurl, string newTfsurl, string sourcePersonalAccessToken = "");
+        protected abstract void FixEmbeddedImages(WorkItemData wi, string oldTfsurl, string newTfsurl, string sourcePersonalAccessToken = "");
 
         protected static HttpResponseMessage DownloadFile(HttpClient httpClient, string url, string destinationPath)
         {

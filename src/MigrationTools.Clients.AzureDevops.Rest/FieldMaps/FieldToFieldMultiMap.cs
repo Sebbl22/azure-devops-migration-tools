@@ -5,9 +5,9 @@ using MigrationTools._EngineV1.Configuration.FieldMap;
 
 namespace MigrationTools.Clients.AzureDevops.Rest.FieldMaps
 {
-    public class FieldtoFieldMultiMap : FieldMapBase
+    public class FieldToFieldMultiMap : FieldMapBase
     {
-        private FieldtoFieldMultiMapConfig Config { get { return (FieldtoFieldMultiMapConfig)_Config; } }
+        private FieldToFieldMultiMapConfig Config { get { return (FieldToFieldMultiMapConfig)_Config; } }
 
         public override void Configure(IFieldMapConfig config)
         {

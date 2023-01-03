@@ -8,9 +8,9 @@ using MigrationTools.Processors;
 
 namespace MigrationTools.Clients.AzureDevops.Rest.Enrichers
 {
-    public class EmbededImagesRepairEnricher : EmbededImagesRepairEnricherBase
+    public class EmbeddedImagesRepairEnricher : EmbeddedImagesRepairEnricherBase
     {
-        public EmbededImagesRepairEnricher(IServiceProvider services, ILogger<EmbededImagesRepairEnricher> logger) : base(services, logger)
+        public EmbeddedImagesRepairEnricher(IServiceProvider services, ILogger<EmbeddedImagesRepairEnricher> logger) : base(services, logger)
         {
             Engine = services.GetRequiredService<IMigrationEngine>();
         }
@@ -38,7 +38,7 @@ namespace MigrationTools.Clients.AzureDevops.Rest.Enrichers
             throw new NotImplementedException();
         }
 
-        protected override void FixEmbededImages(WorkItemData wi, string oldTfsurl, string newTfsurl, string sourcePersonalAccessToken = "")
+        protected override void FixEmbeddedImages(WorkItemData wi, string oldTfsurl, string newTfsurl, string sourcePersonalAccessToken = "")
         {
             throw new NotImplementedException();
         }

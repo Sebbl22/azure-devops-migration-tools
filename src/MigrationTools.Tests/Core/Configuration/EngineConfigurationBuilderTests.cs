@@ -32,7 +32,7 @@ namespace MigrationTools.Configuration.Tests
         }
 
         [TestMethod, TestCategory("L0")]
-        public void EngineConfigurationBuilderDeseraliseFromJsonTest()
+        public void EngineConfigurationBuilderDeserializeFromJsonTest()
         {
             HelperCreateDefaultConfigFile();
             var ecb = CreateEngine();
@@ -42,7 +42,7 @@ namespace MigrationTools.Configuration.Tests
         }
 
         [TestMethod, TestCategory("L0")]
-        public void EngineConfigurationBuilderSeraliseToJsonTest()
+        public void EngineConfigurationBuilderSerializeToJsonTest()
         {
             HelperCreateDefaultConfigFile();
         }

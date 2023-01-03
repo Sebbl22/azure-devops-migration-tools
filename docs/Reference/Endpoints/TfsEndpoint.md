@@ -4,20 +4,20 @@
 
 [Overview](.././index.md) > [Reference](../index.md) > [Endpoints](./index.md) > **TfsEndpoint**
 
-missng XML code comments
+missing XML code comments
 
 ### Options
 
 | Parameter name         | Type    | Description                              | Default Value                            |
 |------------------------|---------|------------------------------------------|------------------------------------------|
-| Organisation | String | missng XML code comments | missng XML code comments |
-| Project | String | missng XML code comments | missng XML code comments |
-| AuthenticationMode | AuthenticationMode | missng XML code comments | missng XML code comments |
-| AccessToken | String | missng XML code comments | missng XML code comments |
-| ReflectedWorkItemIdField | String | missng XML code comments | missng XML code comments |
-| LanguageMaps | TfsLanguageMapOptions | missng XML code comments | missng XML code comments |
-| EndpointEnrichers | List | missng XML code comments | missng XML code comments |
-| RefName | String | missng XML code comments | missng XML code comments |
+| Organisation | String | missing XML code comments | missing XML code comments |
+| Project | String | missing XML code comments | missing XML code comments |
+| AuthenticationMode | AuthenticationMode | missing XML code comments | missing XML code comments |
+| AccessToken | String | missing XML code comments | missing XML code comments |
+| ReflectedWorkItemIdField | String | missing XML code comments | missing XML code comments |
+| LanguageMaps | TfsLanguageMapOptions | missing XML code comments | missing XML code comments |
+| EndpointEnrichers | List | missing XML code comments | missing XML code comments |
+| RefName | String | missing XML code comments | missing XML code comments |
 
 
 ### Example JSON

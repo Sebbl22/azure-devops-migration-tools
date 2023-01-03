@@ -4,7 +4,7 @@
 
 [Overview](.././index.md) > [Reference](../index.md) > *Processors*
 
-We provide a number of Processors that can be used to migrate diferent sorts of data.
+We provide a number of Processors that can be used to migrate different sorts of data.
 
 | Processor                                                         | Data Type      | Description                                                              |
 | :---------------------------------------------------------------- | :------------- | :----------------------------------------------------------------------- |
