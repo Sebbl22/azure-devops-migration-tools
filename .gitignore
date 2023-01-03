@@ -43,7 +43,6 @@ build/
 *.vssscc
 .builds
 *.pidb
-*.log
 *.scc
 
 # Visual C++ cache files
@@ -157,3 +156,6 @@ $RECYCLE.BIN/
 /AttachmentExportData
 /TfsWitMigrator.sln.ide
 /.vs
+
+# JetBrains Rider
+.idea/*
